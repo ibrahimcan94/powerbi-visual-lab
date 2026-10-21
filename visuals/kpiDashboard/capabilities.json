@@ -1,0 +1,103 @@
+{
+
+
+"dataRoles": [
+  {
+    "displayName": "Trend Axis",
+    "name": "category",
+    "kind": "Grouping"
+  },
+  {
+    "displayName": "Measure Data",
+    "name": "measure",
+    "kind": "Measure"
+  }
+],
+"dataViewMappings": [
+  {
+    "categorical": {
+      "categories": {
+        "for": {
+          "in": "category"
+        }
+      },
+      "values": {
+        "select": [
+          {
+            "bind": {
+              "to": "measure"
+            }
+          }
+        ]
+      }
+    }
+  }
+]
+
+,
+    "objects": {
+        "dataPoint": {
+            "properties": {
+                "defaultColor": {
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "showAllDataPoints": {
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "fill": {
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "fillRule": {
+                    "type": {
+                        "fill": {}
+                    }
+                },
+                 "fontSize": {
+                    "type": {
+                        "formatting": {
+                            "fontSize": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "dataViewMappings": [
+        {
+            "categorical": {
+                "categories": {
+                    "for": {
+                        "in": "category"
+                    },
+                    "dataReductionAlgorithm": {
+                        "top": {}
+                    }
+                },
+                "values": {
+                    "select": [
+                        {
+                            "bind": {
+                                "to": "measure"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "privileges": []
+}

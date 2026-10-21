@@ -1,0 +1,132 @@
+
+.kpi-card {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding: 20px;
+    border-radius: 16px;
+    background: #111827;
+    color: #ffffff;
+    font-family: "Segoe UI", Arial, sans-serif;
+    overflow: hidden;
+}
+
+.kpi-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #9ca3af;
+    margin-bottom: 8px;
+}
+
+.kpi-value {
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.trend-container {
+    width: 100%;
+    min-height: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.trend-chart-area {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    min-height: 65px;
+    max-height: 220px;
+}
+
+.trend-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    touch-action: pan-y;
+}
+
+.trend-tooltip {
+    position: absolute;
+    z-index: 10;
+    transform: translate(-50%, -110%);
+    pointer-events: none;
+    padding: 10px 14px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+.tooltip-label {
+    color: #9ca3af;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.tooltip-value {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.tooltip-change {
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.tooltip-change.positive {
+    color: #34d399;
+}
+
+.tooltip-change.negative {
+    color: #fb7185;
+}
+
+.trend-labels {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: #9ca3af;
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+.trend-empty {
+    color: #9ca3af;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+@media (max-width: 300px) {
+    .kpi-card {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .kpi-value {
+        font-size: 24px;
+    }
+
+    .trend-container {
+        margin-top: 12px;
+    }
+}
+html,
+body,
+#sandbox-host {
+    margin: 0;
+}
+
+.kpi-card {
+    max-width: 100%;
+}

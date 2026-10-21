@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Power BI build outputs
+dist/
+.tmp/
+*.pbiviz
+*.pfx
+
+# Environment
+.env
+.env.*
+
+# Editor and system files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Debug output
+*.log
+webpack.statistics.*.html
