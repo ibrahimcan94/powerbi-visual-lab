@@ -1,0 +1,97 @@
+{
+  "name": "Finance I2C Midnight",
+  "dataColors": [
+    "#39D9B3",
+    "#7389FF",
+    "#F5B95F",
+    "#EE748D",
+    "#61B9E8",
+    "#AE98EF"
+  ],
+  "background": "#0B1020",
+  "foreground": "#E8EDF7",
+  "tableAccent": "#39D9B3",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 13,
+      "color": "#E8EDF7"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 11,
+      "color": "#A5B2CA"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 30,
+      "color": "#F5F8FF"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#141D30"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#E8EDF7"
+              }
+            },
+            "fontSize": 12
+          }
+        ],
+        "border": [
+          {
+            "show": false
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#A5B2CA"
+              }
+            },
+            "gridlineShow": false
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#A5B2CA"
+              }
+            },
+            "gridlineColor": {
+              "solid": {
+                "color": "#27334A"
+              }
+            }
+          }
+        ],
+        "legend": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#A5B2CA"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -159,6 +159,11 @@
           "type": {
             "bool": true
           }
+        },
+        "lowerIsBetter": {
+          "type": {
+            "bool": true
+          }
         }
       }
     },

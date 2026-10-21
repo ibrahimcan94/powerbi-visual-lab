@@ -13,8 +13,9 @@ class dashboardCard extends f.SimpleCard {
     background = new f.ColorPicker({ name: "background", displayName: "Background", value: { "value": "#111827" } });
     text = new f.ColorPicker({ name: "text", displayName: "Text", value: { "value": "#f9fafb" } });
     accent = new f.ColorPicker({ name: "accent", displayName: "Accent", value: { "value": "#34d399" } });
+    lowerIsBetter = new f.ToggleSwitch({ name: "lowerIsBetter", displayName: "Lower values are better", value: false });
     showComparison = new f.ToggleSwitch({ name: "showComparison", displayName: "Comparison visible", value: true });
-    slices = [this.showTitle, this.title, this.fontSize, this.decimals, this.prefix, this.suffix, this.percent, this.light, this.background, this.text, this.accent, this.showComparison];
+    slices = [this.showTitle, this.title, this.fontSize, this.decimals, this.prefix, this.suffix, this.percent, this.light, this.background, this.text, this.accent, this.lowerIsBetter, this.showComparison];
 }
 class chartCard extends f.SimpleCard {
     name = "chart";

@@ -27,3 +27,8 @@ Import dist/*.pbiviz using Get more visuals > Import a visual from a file. Bind 
 ## Current limits
 
 Chart is capped at 1,000 categories by host reduction; there is no paging. Comparison is a dashed line. Number formats use Intl plus explicit pane settings rather than all DAX custom format strings. Animation is an entry fade; interpolated path transitions remain future work. Native host tooltip service, localization resources and partial cross-highlighting remain future work. Selection dimming is local and resets after host data updates. Shared framework currently comprises the typed adapter, formatting utilities, KPI and chart components; additional navigation/dropdown components should be introduced with real use cases.
+
+## Finance Invoice-to-Cash report
+
+An editable four-page PBIP report is in reports/FinanceI2C. From that folder run ./Prepare-KpiVisual.ps1 -Build to build and install the ignored private visual resources, then open FinanceI2C.pbip and Refresh. The report embeds synthetic USD invoice, payment, credit, promise and AR snapshot data. See START-HERE.md for metric definitions, date semantics and Desktop acceptance checks. The separate downloadable ZIP already includes the compiled private visual. KPI formatting now includes Lower values are better for finance metrics, and compact cards adapt below 260 pixels.
+

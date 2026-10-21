@@ -1,0 +1,25 @@
+relationship relationship0
+	fromColumn: Invoices.CustomerID
+	toColumn: Customers.CustomerID
+	crossFilteringBehavior: oneDirection
+
+relationship relationship1
+	fromColumn: Payments.InvoiceID
+	toColumn: Invoices.InvoiceID
+	crossFilteringBehavior: oneDirection
+
+relationship relationship2
+	fromColumn: Credits.InvoiceID
+	toColumn: Invoices.InvoiceID
+	crossFilteringBehavior: oneDirection
+
+relationship relationship3
+	fromColumn: ARSnapshot.InvoiceID
+	toColumn: Invoices.InvoiceID
+	crossFilteringBehavior: oneDirection
+
+relationship relationship4
+	fromColumn: Promises.InvoiceID
+	toColumn: Invoices.InvoiceID
+	crossFilteringBehavior: oneDirection
+

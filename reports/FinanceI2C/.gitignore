@@ -1,0 +1,8 @@
+# Desktop cache and generated private visual resources
+.pbi/
+**/.pbi/
+FinanceI2C.Report/CustomVisuals/
+*.pbiviz
+*.png
+*.zip
+validation/

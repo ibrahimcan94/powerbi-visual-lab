@@ -28,3 +28,5 @@ export function parseData(view?: powerbi.DataView, locale = "en-US"): DashboardD
         points.sort((a, b) => (a.time ?? 0) - (b.time ?? 0));
     return { title: headline?.source.displayName ?? trend?.source.displayName ?? "Performance", value: finite(headline?.values[0]), comparison: finite(col("comparison")?.values[0]), points };
 }
+
+export function performanceDirection(absolute: number, lowerIsBetter: boolean): number { return Math.sign(absolute) * (lowerIsBetter ? -1 : 1); }

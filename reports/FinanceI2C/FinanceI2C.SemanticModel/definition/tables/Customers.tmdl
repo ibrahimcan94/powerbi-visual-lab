@@ -1,0 +1,39 @@
+table Customers
+	column CustomerID
+		dataType: string
+		sourceColumn: CustomerID
+		summarizeBy: none
+	column Customer
+		dataType: string
+		sourceColumn: Customer
+		summarizeBy: none
+	column Region
+		dataType: string
+		sourceColumn: Region
+		summarizeBy: none
+	column Segment
+		dataType: string
+		sourceColumn: Segment
+		summarizeBy: none
+	column Collector
+		dataType: string
+		sourceColumn: Collector
+		summarizeBy: none
+	column RiskTier
+		dataType: string
+		sourceColumn: RiskTier
+		summarizeBy: none
+	column CreditLimit
+		dataType: int64
+		sourceColumn: CreditLimit
+		summarizeBy: none
+
+	partition Customers = m
+		mode: import
+		source =
+			let
+			    Rows = Json.Document(Binary.Decompress(Binary.FromText("lZhbT9wwEIX/SrTPVMrd2UdAqBdBQVD1BfHgEhcishvkZEv593XKrjOzGY8dHlZs5D3ynPH57Pj+fnUex8nqZHXaD0pHSfR1W+/6QTeqNw+/d3p4jk43SjeP0ny/2JpBr7rp1fiLVv2Nrjr9JLfm22X3tjpJ4v9/Dyf/ZdODQj/ImfTFTnevo8xVU3/aSP2iBvPlTm6i2+aP0hJL7hWzcbyZTN3I7bHgad/I6EY+Nr+bx1Hp6sx8fut0bYZeKkXq5ebptXx5U217LGemVbcqupD9cFz4D/nedjo601330h900wLoFubpWbtTr0q++DxF9Z/LXr1H589qtPRL8/S8OinghMtxjKoZOz/qxr35EMLNEeb5T6UHM443EpU+7w+quxp/PrSy591EJaMWXam62W2OVNdjCVL/6rzr86P44/5Qokk8Dt9tNs3gtBJVjjpDKo4putxtlG9louqJECHRMUPXuum2vKMfhaPuHOYIF3wyBuiuac2QttmqRXFHfSJWVDKG6cbMVKnAsJM5gss9GXN0q+q3rquD4o6aNDdzTM+Fqf1JK7VdEHjcJLL5wiI0jW7VIJvWF3WyWaj6CvET6B6FnUwQUlpDbgIhLupkd+BiSmNATyDKZJ0MEVpFaQLRyXhJcY5WTC0zKQs9eMNS2QRNt4tuus2BnuaWmE4HaajNwpIWEyYZ3/xQwyWXEycp+5bALBWWkG73GJIhrcqC0WmcG1/ztbzGYAwNsWurgY3JYgBGd4qZXux1EkDDwBD7yZWlCIphOeaPaVlmYZhFd+/mn417s/YEJMsRBKEeHeHjjsCdai9ZQBpCRS7I3v0/KwEOoSqVZt/ZORMQg5yLHn4hLytLQtJHN7jmLV5PJGQcpNFFHB7y2HLQbZ0bXXMD82SiIWcfwy+qyXk64ZD0kMAXMbnMgpAxz4MvNK3c0tBtn//sBTucF5iI/iS7OrLXKwEF/TF2BmSvJgALQyPMpyOvEAh9CfYeuvK1pWBuZqSHrdLeAHtfLYsY8RAp00GetwXOskggDJEcmWXPFl+kAIJIjYkyv5sUGUQha6UHYKju3LKQ9pA5daHZFRMIOfc87EJTKy0LGQeXHLwKMcGQNZA5fKEZVhMFafcWsKtYWxhyBrL0mm/yZWyJyJgY8tZYJhiE4WH2MKxMAREDgsy83R8UM0BFf5b5hJQ54mFomEMuX8rCorGIPutu97roXoxakmWJuDjJshdj82YLiMNJJfhObH6CLSuAxEkx9EZsvmzWkIdu/7wA2+uJ2JKQcG3ZHZhIJho6zfORC5onUstCl3Xeq6+DVDZB0O3aAnCJfKIg4dzi90RRWBA6vSOANWefKC37XKYxnJqvYCEwAQMzyx+3RAXo54wrHwWxBrwLC2tII6oYkS8os+7XkYd/", BinaryEncoding.Base64), Compression.Deflate)),
+			    Source = Table.FromRows(Rows, {"CustomerID", "Customer", "Region", "Segment", "Collector", "RiskTier", "CreditLimit"}),
+			    Typed = Table.TransformColumnTypes(Source, {{"CustomerID", type text}, {"Customer", type text}, {"Region", type text}, {"Segment", type text}, {"Collector", type text}, {"RiskTier", type text}, {"CreditLimit", Int64.Type}}, "en-US")
+			in
+			    Typed

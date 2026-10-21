@@ -1,0 +1,33 @@
+table Calendar
+	column MonthEnd
+		dataType: dateTime
+		sourceColumn: MonthEnd
+		summarizeBy: none
+		formatString: yyyy-MM-dd
+	column Month
+		dataType: string
+		sourceColumn: Month
+		summarizeBy: none
+		sortByColumn: MonthKey
+	column MonthKey
+		dataType: int64
+		sourceColumn: MonthKey
+		summarizeBy: none
+	column Year
+		dataType: int64
+		sourceColumn: Year
+		summarizeBy: none
+	column Quarter
+		dataType: string
+		sourceColumn: Quarter
+		summarizeBy: none
+
+	partition Calendar = m
+		mode: import
+		source =
+			let
+			    Rows = Json.Document(Binary.Decompress(Binary.FromText("bdCxCsIwEIDhV5HMCeQubZqOBXEoqIhj6VBLcBEtYgXf3iZn4IpZEggfP7nrOoEaSwVaGRBSHMfXJjwIGU7Q8ZLiVIheJgrK6IUeHm9OIUeRqls/cop/1CoNRNvhHqiN1OpYtQsFRlGhW+jOXzjFHDVU3Q9PTk2OFjRWM61okSgyWqbqh9MyRy1V23k1ls3R6reB+cZplahh1BFt5iunLkdr+sDZT5zWjPZf", BinaryEncoding.Base64), Compression.Deflate)),
+			    Source = Table.FromRows(Rows, {"MonthEnd", "Month", "MonthKey", "Year", "Quarter"}),
+			    Typed = Table.TransformColumnTypes(Source, {{"MonthEnd", type date}, {"Month", type text}, {"MonthKey", Int64.Type}, {"Year", Int64.Type}, {"Quarter", type text}}, "en-US")
+			in
+			    Typed

@@ -33,3 +33,7 @@ CLI 7.2.1 / API 5.11.1, React 19, D3 7. Preserve GUID, existing measure role and
 Phases 1–5 delivered as a reusable KPI foundation: strict adapter, eight focused tests, independent scalar roles, variance/formatting, D3 gaps/date geometry/comparison, native selection/context menu, formatting cards, theme and lifecycle cleanup. Phase 6: TypeScript/lint/tests and production packaging validated; Desktop acceptance remains manual.
 
 Next refinements: native tooltip service, external selection synchronization, complete custom format-string support, true path interpolation, localization and host cross-highlights. See README for exact scalar/DAX contract and limits.
+
+## Finance I2C extension
+Four-page PBIP report, seven embedded source tables plus Metrics, 49 DAX measures, 57 visual containers, 12 monthly balance reconciliations. Report schemas and TOM deserialization pass. Desktop/DAX runtime acceptance remains manual. KPI compact layouts and lower-is-better variance added; nine visual unit tests, TypeScript, lint and packaging pass.
+

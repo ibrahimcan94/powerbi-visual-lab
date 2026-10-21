@@ -1,0 +1,206 @@
+table Metrics
+	measure 'As Of Date' = MAX(Calendar[MonthEnd])
+		formatString: dd mmm yyyy
+		displayFolder: Context
+
+	measure 'Open AR' = VAR d = [As Of Date] RETURN CALCULATE(SUM(ARSnapshot[OpenAmount]), TREATAS({d}, ARSnapshot[SnapshotDate]))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'Overdue AR' = CALCULATE([Open AR], ARSnapshot[DaysPastDue] > 0)
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'Current AR' = CALCULATE([Open AR], ARSnapshot[DaysPastDue] = 0)
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'AR 90 Plus' = CALCULATE([Open AR], ARSnapshot[DaysPastDue] > 90)
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'Disputed AR' = VAR d = [As Of Date] RETURN CALCULATE(SUM(ARSnapshot[DisputedAmount]), TREATAS({d}, ARSnapshot[SnapshotDate]))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'Overdue Percent' = DIVIDE([Overdue AR], [Open AR])
+		formatString: 0.0%;(0.0%);0.0%
+		displayFolder: Finance
+
+	measure 'Dispute Percent' = DIVIDE([Disputed AR], [Open AR])
+		formatString: 0.0%;(0.0%);0.0%
+		displayFolder: Finance
+
+	measure 'Cash Collected' = CALCULATE(SUM(Payments[Amount]), TREATAS(VALUES(Calendar[MonthEnd]), Payments[PaymentMonth]))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'Credit Sales' = CALCULATE(SUM(Invoices[Amount]), TREATAS(VALUES(Calendar[MonthEnd]), Invoices[InvoiceMonth]))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'Credit Notes' = CALCULATE(SUM(Credits[Amount]), TREATAS(VALUES(Calendar[MonthEnd]), Credits[CreditMonth]))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'Rolling 90 Day Sales' = VAR d = [As Of Date] RETURN CALCULATE(SUM(Invoices[Amount]), FILTER(ALL(Invoices[InvoiceDate]), Invoices[InvoiceDate] > d - 90 && Invoices[InvoiceDate] <= d))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'DSO Days' = DIVIDE([Open AR] * 90, [Rolling 90 Day Sales])
+		formatString: 0.0 "days"
+		displayFolder: Finance
+
+	measure 'DSO Target' = 45
+		formatString: 0.0 "days"
+		displayFolder: Targets
+
+	measure 'Overdue Target' = 0.25
+		formatString: 0.0%;(0.0%);0.0%
+		displayFolder: Targets
+
+	measure 'Monthly Cash' = VAR d = [As Of Date] RETURN CALCULATE(SUM(Payments[Amount]), TREATAS({d}, Payments[PaymentMonth]))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'Monthly Billings' = VAR d = [As Of Date] RETURN CALCULATE(SUM(Invoices[Amount]), TREATAS({d}, Invoices[InvoiceMonth]))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'Cash Target' = [Monthly Billings] * 0.95
+		formatString: $#,0;($#,0);$0
+		displayFolder: Targets
+
+	measure 'Cash Attainment' = DIVIDE([Monthly Cash], [Cash Target])
+		formatString: 0.0%;(0.0%);0.0%
+		displayFolder: Finance
+
+	measure 'Prior AR' = VAR d = EOMONTH([As Of Date], -1) RETURN CALCULATE(SUM(ARSnapshot[OpenAmount]), TREATAS({d}, ARSnapshot[SnapshotDate]))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'Prior DSO' = VAR d = EOMONTH([As Of Date], -1) RETURN CALCULATE([DSO Days], REMOVEFILTERS(Calendar), TREATAS({d}, Calendar[MonthEnd]))
+		formatString: 0.0 "days"
+		displayFolder: Finance
+
+	measure 'Monthly Credits' = VAR d = [As Of Date] RETURN CALCULATE(SUM(Credits[Amount]), TREATAS({d}, Credits[CreditMonth]))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'CEI' = VAR Base = COALESCE([Prior AR],0) + [Monthly Billings] - COALESCE([Monthly Credits],0) RETURN DIVIDE(Base - [Open AR], Base - [Current AR])
+		formatString: 0.0%;(0.0%);0.0%
+		displayFolder: Finance
+
+	measure 'Open Invoices' = VAR d = [As Of Date] RETURN CALCULATE(DISTINCTCOUNT(ARSnapshot[InvoiceID]), TREATAS({d}, ARSnapshot[SnapshotDate]))
+		formatString: #,0
+		displayFolder: Finance
+
+	measure 'Active Customers' = VAR d = [As Of Date] RETURN CALCULATE(DISTINCTCOUNT(Invoices[CustomerID]), FILTER(Invoices, CALCULATE(COUNTROWS(ARSnapshot), TREATAS({d}, ARSnapshot[SnapshotDate])) > 0))
+		formatString: #,0
+		displayFolder: Finance
+
+	measure 'Closed Invoices' = VAR d = [As Of Date] RETURN CALCULATE(COUNTROWS(Invoices), FILTER(Invoices, Invoices[IsClosed] = 1 && Invoices[ClosedDate] <= d && NOT ISBLANK(Invoices[ClosedDate])))
+		formatString: #,0
+		displayFolder: Finance
+
+	measure 'On Time Paid Percent' = VAR d = [As Of Date] VAR n = CALCULATE(SUM(Invoices[PaidOnTime]), FILTER(Invoices, Invoices[IsClosed] = 1 && Invoices[ClosedDate] <= d && NOT ISBLANK(Invoices[ClosedDate]))) RETURN DIVIDE(n, [Closed Invoices])
+		formatString: 0.0%;(0.0%);0.0%
+		displayFolder: Finance
+
+	measure 'Promises Due' = CALCULATE(COUNTROWS(Promises), TREATAS(VALUES(Calendar[MonthEnd]), Promises[PromiseMonth]))
+		formatString: #,0
+		displayFolder: Finance
+
+	measure 'Promises Kept' = CALCULATE([Promises Due], Promises[Kept] = 1)
+		formatString: #,0
+		displayFolder: Finance
+
+	measure 'Promise Kept Percent' = DIVIDE([Promises Kept], [Promises Due])
+		formatString: 0.0%;(0.0%);0.0%
+		displayFolder: Finance
+
+	measure 'Weighted Days Past Due' = VAR d = [As Of Date] RETURN DIVIDE(CALCULATE(SUMX(ARSnapshot, ARSnapshot[OpenAmount] * ARSnapshot[DaysPastDue]), TREATAS({d}, ARSnapshot[SnapshotDate])), [Open AR])
+		formatString: 0.0 "days"
+		displayFolder: Finance
+
+	measure 'Average Invoice' = DIVIDE([Credit Sales], CALCULATE(COUNTROWS(Invoices), TREATAS(VALUES(Calendar[MonthEnd]), Invoices[InvoiceMonth])))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'Latest Cash' = [Monthly Cash]
+		formatString: $#,0;($#,0);$0
+		displayFolder: Finance
+
+	measure 'Open AR Headline' = CALCULATE([Open AR], ALLSELECTED(Calendar))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Headlines
+
+	measure 'DSO Days Headline' = CALCULATE([DSO Days], ALLSELECTED(Calendar))
+		formatString: 0.0 "days"
+		displayFolder: Headlines
+
+	measure 'Overdue Percent Headline' = CALCULATE([Overdue Percent], ALLSELECTED(Calendar))
+		formatString: 0.0%;(0.0%);0.0%
+		displayFolder: Headlines
+
+	measure 'Latest Cash Headline' = CALCULATE([Latest Cash], ALLSELECTED(Calendar))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Headlines
+
+	measure 'CEI Headline' = CALCULATE([CEI], ALLSELECTED(Calendar))
+		formatString: 0.0%;(0.0%);0.0%
+		displayFolder: Headlines
+
+	measure 'Promise Kept Percent Headline' = CALCULATE([Promise Kept Percent], ALLSELECTED(Calendar))
+		formatString: 0.0%;(0.0%);0.0%
+		displayFolder: Headlines
+
+	measure 'Prior AR Headline' = CALCULATE([Prior AR], ALLSELECTED(Calendar))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Headlines
+
+	measure 'DSO Target Headline' = CALCULATE([DSO Target], ALLSELECTED(Calendar))
+		formatString: 0.0 "days"
+		displayFolder: Headlines
+
+	measure 'Overdue Target Headline' = CALCULATE([Overdue Target], ALLSELECTED(Calendar))
+		formatString: 0.0%;(0.0%);0.0%
+		displayFolder: Headlines
+
+	measure 'Cash Target Headline' = CALCULATE([Cash Target], ALLSELECTED(Calendar))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Headlines
+
+	measure 'Cash Attainment Headline' = CALCULATE([Cash Attainment], ALLSELECTED(Calendar))
+		formatString: 0.0%;(0.0%);0.0%
+		displayFolder: Headlines
+
+	measure 'Disputed AR Headline' = CALCULATE([Disputed AR], ALLSELECTED(Calendar))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Headlines
+
+	measure 'Open Invoices Headline' = CALCULATE([Open Invoices], ALLSELECTED(Calendar))
+		formatString: #,0
+		displayFolder: Headlines
+
+	measure 'AR 90 Plus Headline' = CALCULATE([AR 90 Plus], ALLSELECTED(Calendar))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Headlines
+
+	measure 'Weighted Days Past Due Headline' = CALCULATE([Weighted Days Past Due], ALLSELECTED(Calendar))
+		formatString: 0.0 "days"
+		displayFolder: Headlines
+
+	measure 'Overdue AR Headline' = CALCULATE([Overdue AR], ALLSELECTED(Calendar))
+		formatString: $#,0;($#,0);$0
+		displayFolder: Headlines
+
+	column Placeholder
+		dataType: int64
+		isHidden
+		sourceColumn: Placeholder
+		summarizeBy: none
+
+	partition Metrics = m
+		mode: import
+		source = #table(type table [Placeholder = Int64.Type], {{1}})

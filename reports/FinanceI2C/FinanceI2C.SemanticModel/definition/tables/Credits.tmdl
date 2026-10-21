@@ -1,0 +1,33 @@
+table Credits
+	column CreditID
+		dataType: string
+		sourceColumn: CreditID
+		summarizeBy: none
+	column InvoiceID
+		dataType: string
+		sourceColumn: InvoiceID
+		summarizeBy: none
+	column CreditDate
+		dataType: dateTime
+		sourceColumn: CreditDate
+		summarizeBy: none
+		formatString: yyyy-MM-dd
+	column CreditMonth
+		dataType: dateTime
+		sourceColumn: CreditMonth
+		summarizeBy: none
+		formatString: yyyy-MM-dd
+	column Amount
+		dataType: decimal
+		sourceColumn: Amount
+		summarizeBy: none
+
+	partition Credits = m
+		mode: import
+		source =
+			let
+			    Rows = Json.Document(Binary.Decompress(Binary.FromText("fZg9khw3DIXvoljDIv6J2JETBw6cqHT/axizLTUeOXZvbbBd1W9BAh8ewf7x49sff79m/dC379/+/Ouf99/E9TdP9tdcL1rwIPUWTZdB9PP7LeWWmt1v50vm8WDLRhgopZWr49Qvw8NbSTrHDFBqK/OX0l7Er2nw8F6urpEotFtIlHcUwcXKJaTwMROk3lLYJ70gX/Ql9drOMNxotDT8caNmNHiBdLU0e8GGUvuKylUXx/XmreSvBVxpIcwRXUGdabi0lGZLOQGA7eEd9J0jWC01RixbXeioS85BUBdqiMQC352HkFlokIO0KRKXe32B6Ma1WPVBkCFqimTpE7mcOQJjNkY6BQtqZ0E5bRCDtDHSLQ78nyuocGzQU1OkyY/LpZIK1qUpMp0ADsdBkZCNhO6mpsh8PgVV1yGQI26ILDEtTB/dXSVdKG2MXHqF+mKGh7c0pAoD2eXmyDcz+sguSwwD5rkxio+XDxhkTEgRN0bBzwY4wzZ2uTkKeLvYjYNdorW5ETdGkY91SeWhCsoAJWLE6wSQqGwXc9QYLV9ogXpYYKqNhUEboySCIpIdFZWILbvSGCU7siCnsioakCJpilIFOIfVXtCvSpFhTAalY4r8hL4SsTmgNEZpCUZLebgur4Ie0JUbI5rQInUE+2G6Wiw4LtdAia77e7l9GpZSMUXeSlP0MT161K32CcJooW8dSkdVakk8GGOulgZ6J88jJgfLAAOUGyIi7aCM3cJfGL+9yKHPdLZyydPxQklDoZ5KoDRoSrajQ7n2uaBZ9IaIeDvnZx77lBWDYZ8qoETK5zqSa06bz2szxCLQkxDzalDWGAkjijZDrFtBzwYlqWEM6FMHJdJH55kvQbopGyJe2KDzPJUKsrFwtc0Q5zbbnF0muuZYmKIE6UJXOIPy1JFQUGuIBHpSXvsg+W4z9w0ia4jE0J/pw09kYZtZMySB05/Mj+lvDgOGrBmSRWjVcpIQWfhBcq0hknQcFuwsS01xgftsiNQCkgLn9pWhIB7gCdYMaSqUkM96avo20FszZJDaOljm2StJBRFKF0jp6Qj1mOhDliDUp8la3bZp3hshnIkCz95fblKDDR693gg5eEJ3WXtf7Hclb4bitw9dM7me3ld0DozZDMXGOBygVzlr4ERsvQkKZ0yQnO1Z0zEOJ94ErX1O0NOGfG0zozsoHbI56Uxt7o7gjdASxdvOefAa5RDoFF+gDDyy6bw1l9dsqW2E1t4p9pFaq7kaXDOaoaTHW0vdcHNzsGiIEkze8WDxXz4Um+FGQ3SPNf+901LWDQLSG01Rwi1fsEOvrSbn9n0gboz4Ok3/fyR/V4aAo7CWwnoZHfdqlyDZ7r7hrdyuLZ/H9rQRWJibI6aFAzFwdFmuLNvmzVigxLkarmeXUgsjxn3eHNX4MR87zXJAVdZsocjTjdCqKjinrhuiuonr07eXuj7UalHKLWX8ysQfX5mWyDCUCkjxkkUf1NfYuI1TqzES2wZOP6l/39Xp589/AQ==", BinaryEncoding.Base64), Compression.Deflate)),
+			    Source = Table.FromRows(Rows, {"CreditID", "InvoiceID", "CreditDate", "CreditMonth", "Amount"}),
+			    Typed = Table.TransformColumnTypes(Source, {{"CreditID", type text}, {"InvoiceID", type text}, {"CreditDate", type date}, {"CreditMonth", type date}, {"Amount", Currency.Type}}, "en-US")
+			in
+			    Typed

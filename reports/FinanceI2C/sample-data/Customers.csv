@@ -1,0 +1,81 @@
+﻿CustomerID,Customer,Region,Segment,Collector,RiskTier,CreditLimit
+C001,Aster 1 Industries,North America,Enterprise,Alex Morgan,Low,1000000
+C002,Northstar 1 Industries,Europe,Mid-market,Sam Rivera,Low,100000
+C003,Meridian 1 Industries,Asia Pacific,SMB,Jordan Lee,Low,100000
+C004,Oakwell 1 Industries,Middle East,Enterprise,Taylor Brooks,Low,250000
+C005,Bluepeak 1 Industries,North America,Mid-market,Casey Chen,High,500000
+C006,Cedar 1 Industries,Europe,SMB,Alex Morgan,High,1000000
+C007,Vertex 1 Industries,Asia Pacific,Enterprise,Sam Rivera,Low,250000
+C008,Atlas 1 Industries,Middle East,Mid-market,Jordan Lee,Medium,250000
+C009,Harbor 1 Industries,North America,SMB,Taylor Brooks,Medium,250000
+C010,Summit 1 Industries,Europe,Enterprise,Casey Chen,Medium,250000
+C011,Lumen 1 Industries,Asia Pacific,Mid-market,Alex Morgan,Low,250000
+C012,Orion 1 Industries,Middle East,SMB,Sam Rivera,Medium,100000
+C013,Silverline 1 Industries,North America,Enterprise,Jordan Lee,High,1000000
+C014,Pioneer 1 Industries,Europe,Mid-market,Taylor Brooks,Low,500000
+C015,Redwood 1 Industries,Asia Pacific,SMB,Casey Chen,Low,250000
+C016,Evergreen 1 Industries,Middle East,Enterprise,Alex Morgan,Medium,250000
+C017,Aster 2 Retail,North America,Mid-market,Sam Rivera,Medium,500000
+C018,Northstar 2 Retail,Europe,SMB,Jordan Lee,Medium,500000
+C019,Meridian 2 Retail,Asia Pacific,Enterprise,Taylor Brooks,Low,100000
+C020,Oakwell 2 Retail,Middle East,Mid-market,Casey Chen,Medium,1000000
+C021,Bluepeak 2 Retail,North America,SMB,Alex Morgan,Medium,1000000
+C022,Cedar 2 Retail,Europe,Enterprise,Sam Rivera,Low,1000000
+C023,Vertex 2 Retail,Asia Pacific,Mid-market,Jordan Lee,High,500000
+C024,Atlas 2 Retail,Middle East,SMB,Taylor Brooks,Low,500000
+C025,Harbor 2 Retail,North America,Enterprise,Casey Chen,Medium,1000000
+C026,Summit 2 Retail,Europe,Mid-market,Alex Morgan,Low,250000
+C027,Lumen 2 Retail,Asia Pacific,SMB,Sam Rivera,Medium,250000
+C028,Orion 2 Retail,Middle East,Enterprise,Jordan Lee,Low,100000
+C029,Silverline 2 Retail,North America,Mid-market,Taylor Brooks,Medium,500000
+C030,Pioneer 2 Retail,Europe,SMB,Casey Chen,Medium,100000
+C031,Redwood 2 Retail,Asia Pacific,Enterprise,Alex Morgan,Medium,250000
+C032,Evergreen 2 Retail,Middle East,Mid-market,Sam Rivera,Low,100000
+C033,Aster 3 Systems,North America,SMB,Jordan Lee,High,500000
+C034,Northstar 3 Systems,Europe,Enterprise,Taylor Brooks,High,100000
+C035,Meridian 3 Systems,Asia Pacific,Mid-market,Casey Chen,Medium,250000
+C036,Oakwell 3 Systems,Middle East,SMB,Alex Morgan,Low,1000000
+C037,Bluepeak 3 Systems,North America,Enterprise,Sam Rivera,Low,500000
+C038,Cedar 3 Systems,Europe,Mid-market,Jordan Lee,Low,100000
+C039,Vertex 3 Systems,Asia Pacific,SMB,Taylor Brooks,High,1000000
+C040,Atlas 3 Systems,Middle East,Enterprise,Casey Chen,Low,1000000
+C041,Harbor 3 Systems,North America,Mid-market,Alex Morgan,Medium,250000
+C042,Summit 3 Systems,Europe,SMB,Sam Rivera,Low,1000000
+C043,Lumen 3 Systems,Asia Pacific,Enterprise,Jordan Lee,Low,250000
+C044,Orion 3 Systems,Middle East,Mid-market,Taylor Brooks,Low,100000
+C045,Silverline 3 Systems,North America,SMB,Casey Chen,Low,100000
+C046,Pioneer 3 Systems,Europe,Enterprise,Alex Morgan,Low,100000
+C047,Redwood 3 Systems,Asia Pacific,Mid-market,Sam Rivera,Low,500000
+C048,Evergreen 3 Systems,Middle East,SMB,Jordan Lee,Medium,500000
+C049,Aster 4 Partners,North America,Enterprise,Taylor Brooks,Low,250000
+C050,Northstar 4 Partners,Europe,Mid-market,Casey Chen,Low,500000
+C051,Meridian 4 Partners,Asia Pacific,SMB,Alex Morgan,Low,250000
+C052,Oakwell 4 Partners,Middle East,Enterprise,Sam Rivera,Low,100000
+C053,Bluepeak 4 Partners,North America,Mid-market,Jordan Lee,Low,500000
+C054,Cedar 4 Partners,Europe,SMB,Taylor Brooks,Low,100000
+C055,Vertex 4 Partners,Asia Pacific,Enterprise,Casey Chen,Low,500000
+C056,Atlas 4 Partners,Middle East,Mid-market,Alex Morgan,Low,250000
+C057,Harbor 4 Partners,North America,SMB,Sam Rivera,Medium,500000
+C058,Summit 4 Partners,Europe,Enterprise,Jordan Lee,Low,250000
+C059,Lumen 4 Partners,Asia Pacific,Mid-market,Taylor Brooks,High,100000
+C060,Orion 4 Partners,Middle East,SMB,Casey Chen,Low,250000
+C061,Silverline 4 Partners,North America,Enterprise,Alex Morgan,Low,100000
+C062,Pioneer 4 Partners,Europe,Mid-market,Sam Rivera,Medium,1000000
+C063,Redwood 4 Partners,Asia Pacific,SMB,Jordan Lee,Low,500000
+C064,Evergreen 4 Partners,Middle East,Enterprise,Taylor Brooks,Medium,250000
+C065,Aster 5 Group,North America,Mid-market,Casey Chen,Medium,500000
+C066,Northstar 5 Group,Europe,SMB,Alex Morgan,Low,250000
+C067,Meridian 5 Group,Asia Pacific,Enterprise,Sam Rivera,High,500000
+C068,Oakwell 5 Group,Middle East,Mid-market,Jordan Lee,Low,100000
+C069,Bluepeak 5 Group,North America,SMB,Taylor Brooks,Low,1000000
+C070,Cedar 5 Group,Europe,Enterprise,Casey Chen,Medium,250000
+C071,Vertex 5 Group,Asia Pacific,Mid-market,Alex Morgan,Low,500000
+C072,Atlas 5 Group,Middle East,SMB,Sam Rivera,Medium,1000000
+C073,Harbor 5 Group,North America,Enterprise,Jordan Lee,Low,250000
+C074,Summit 5 Group,Europe,Mid-market,Taylor Brooks,Medium,500000
+C075,Lumen 5 Group,Asia Pacific,SMB,Casey Chen,High,100000
+C076,Orion 5 Group,Middle East,Enterprise,Alex Morgan,High,500000
+C077,Silverline 5 Group,North America,Mid-market,Sam Rivera,Low,500000
+C078,Pioneer 5 Group,Europe,SMB,Jordan Lee,Low,100000
+C079,Redwood 5 Group,Asia Pacific,Enterprise,Taylor Brooks,Medium,500000
+C080,Evergreen 5 Group,Middle East,Mid-market,Casey Chen,Low,1000000
