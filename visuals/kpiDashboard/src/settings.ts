@@ -1,83 +1,46 @@
-/*
- *  Power BI Visualizations
- *
- *  Copyright (c) Microsoft Corporation
- *  All rights reserved.
- *  MIT License
- *
- *  Permission is hereby granted, free of charge, to any person obtaining a copy
- *  of this software and associated documentation files (the ""Software""), to deal
- *  in the Software without restriction, including without limitation the rights
- *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- *  copies of the Software, and to permit persons to whom the Software is
- *  furnished to do so, subject to the following conditions:
- *
- *  The above copyright notice and this permission notice shall be included in
- *  all copies or substantial portions of the Software.
- *
- *  THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- *  THE SOFTWARE.
- */
-
-"use strict";
-
-import { formattingSettings } from "powerbi-visuals-utils-formattingmodel";
-
-import FormattingSettingsCard = formattingSettings.SimpleCard;
-import FormattingSettingsSlice = formattingSettings.Slice;
-import FormattingSettingsModel = formattingSettings.Model;
-
-/**
- * Data Point Formatting Card
- */
-class DataPointCardSettings extends FormattingSettingsCard {
-    defaultColor = new formattingSettings.ColorPicker({
-        name: "defaultColor",
-        displayName: "Default color",
-        value: { value: "" }
-    });
-
-    showAllDataPoints = new formattingSettings.ToggleSwitch({
-        name: "showAllDataPoints",
-        displayName: "Show all",
-        value: true
-    });
-
-    fill = new formattingSettings.ColorPicker({
-        name: "fill",
-        displayName: "Fill",
-        value: { value: "" }
-    });
-
-    fillRule = new formattingSettings.ColorPicker({
-        name: "fillRule",
-        displayName: "Color saturation",
-        value: { value: "" }
-    });
-
-    fontSize = new formattingSettings.NumUpDown({
-        name: "fontSize",
-        displayName: "Text Size",
-        value: 12
-    });
-
-    name: string = "dataPoint";
-    displayName: string = "Data colors";
-    slices: Array<FormattingSettingsSlice> = [this.defaultColor, this.showAllDataPoints, this.fill, this.fillRule, this.fontSize];
+import { formattingSettings as f } from "powerbi-visuals-utils-formattingmodel";
+class dashboardCard extends f.SimpleCard {
+    name = "dashboard";
+    displayName = "dashboard";
+    showTitle = new f.ToggleSwitch({ name: "showTitle", displayName: "Title visible", value: true });
+    title = new f.TextInput({ name: "title", displayName: "Title", value: "", placeholder: "Automatic" });
+    fontSize = new f.NumUpDown({ name: "fontSize", displayName: "Value font size", value: 40 });
+    decimals = new f.NumUpDown({ name: "decimals", displayName: "Decimal places", value: 2 });
+    prefix = new f.TextInput({ name: "prefix", displayName: "Prefix", value: "", placeholder: "Automatic" });
+    suffix = new f.TextInput({ name: "suffix", displayName: "Suffix", value: "", placeholder: "Automatic" });
+    percent = new f.ToggleSwitch({ name: "percent", displayName: "Percentage", value: false });
+    light = new f.ToggleSwitch({ name: "light", displayName: "Light theme", value: false });
+    background = new f.ColorPicker({ name: "background", displayName: "Background", value: { "value": "#111827" } });
+    text = new f.ColorPicker({ name: "text", displayName: "Text", value: { "value": "#f9fafb" } });
+    accent = new f.ColorPicker({ name: "accent", displayName: "Accent", value: { "value": "#34d399" } });
+    showComparison = new f.ToggleSwitch({ name: "showComparison", displayName: "Comparison visible", value: true });
+    slices = [this.showTitle, this.title, this.fontSize, this.decimals, this.prefix, this.suffix, this.percent, this.light, this.background, this.text, this.accent, this.showComparison];
 }
-
-/**
-* visual settings model class
-*
-*/
-export class VisualFormattingSettingsModel extends FormattingSettingsModel {
-    // Create formatting settings model formatting cards
-    dataPointCard = new DataPointCardSettings();
-
-    cards = [this.dataPointCard];
+class chartCard extends f.SimpleCard {
+    name = "chart";
+    displayName = "chart";
+    show = new f.ToggleSwitch({ name: "show", displayName: "Chart visible", value: true });
+    lineColor = new f.ColorPicker({ name: "lineColor", displayName: "Line color", value: { "value": "#34d399" } });
+    lineWidth = new f.NumUpDown({ name: "lineWidth", displayName: "Line width", value: 3 });
+    opacity = new f.NumUpDown({ name: "opacity", displayName: "Area opacity", value: 0.2 });
+    tooltips = new f.ToggleSwitch({ name: "tooltips", displayName: "Tooltips", value: true });
+    gridlines = new f.ToggleSwitch({ name: "gridlines", displayName: "Gridlines", value: true });
+    animation = new f.ToggleSwitch({ name: "animation", displayName: "Animation", value: true });
+    slices = [this.show, this.lineColor, this.lineWidth, this.opacity, this.tooltips, this.gridlines, this.animation];
+}
+class LegacyCard extends f.SimpleCard {
+    name = "dataPoint";
+    displayName = "Legacy data colors";
+    defaultColor = new f.ColorPicker({ name: "defaultColor", displayName: "defaultColor", value: { "value": "" } });
+    fill = new f.ColorPicker({ name: "fill", displayName: "fill", value: { "value": "" } });
+    fillRule = new f.ColorPicker({ name: "fillRule", displayName: "fillRule", value: { "value": "" } });
+    fontSize = new f.NumUpDown({ name: "fontSize", displayName: "fontSize", value: 12 });
+    showAllDataPoints = new f.ToggleSwitch({ name: "showAllDataPoints", displayName: "showAllDataPoints", value: true });
+    slices = [this.defaultColor, this.fill, this.fillRule, this.fontSize, this.showAllDataPoints];
+}
+export class VisualFormattingSettingsModel extends f.Model {
+    dashboard = new dashboardCard();
+    chart = new chartCard();
+    legacy = new LegacyCard();
+    cards = [this.dashboard, this.chart, this.legacy];
 }

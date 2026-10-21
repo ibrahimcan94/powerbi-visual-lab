@@ -1,103 +1,251 @@
 {
-
-
-"dataRoles": [
-  {
-    "displayName": "Trend Axis",
-    "name": "category",
-    "kind": "Grouping"
-  },
-  {
-    "displayName": "Measure Data",
-    "name": "measure",
-    "kind": "Measure"
-  }
-],
-"dataViewMappings": [
-  {
-    "categorical": {
-      "categories": {
-        "for": {
-          "in": "category"
+  "dataRoles": [
+    {
+      "name": "category",
+      "displayName": "Trend axis",
+      "kind": "Grouping"
+    },
+    {
+      "name": "measure",
+      "displayName": "Trend measure",
+      "kind": "Measure"
+    },
+    {
+      "name": "headline",
+      "displayName": "Independent headline measure",
+      "kind": "Measure"
+    },
+    {
+      "name": "comparison",
+      "displayName": "Independent headline comparison",
+      "kind": "Measure"
+    },
+    {
+      "name": "trendComparison",
+      "displayName": "Trend comparison",
+      "kind": "Measure"
+    }
+  ],
+  "dataViewMappings": [
+    {
+      "conditions": [
+        {
+          "category": {
+            "max": 1
+          },
+          "measure": {
+            "max": 1
+          },
+          "headline": {
+            "max": 1
+          },
+          "comparison": {
+            "max": 1
+          },
+          "trendComparison": {
+            "max": 1
+          }
         }
-      },
-      "values": {
-        "select": [
-          {
-            "bind": {
-              "to": "measure"
+      ],
+      "categorical": {
+        "categories": {
+          "for": {
+            "in": "category"
+          },
+          "dataReductionAlgorithm": {
+            "top": {
+              "count": 1000
             }
           }
-        ]
+        },
+        "values": {
+          "select": [
+            {
+              "bind": {
+                "to": "measure"
+              }
+            },
+            {
+              "bind": {
+                "to": "headline"
+              }
+            },
+            {
+              "bind": {
+                "to": "comparison"
+              }
+            },
+            {
+              "bind": {
+                "to": "trendComparison"
+              }
+            }
+          ]
+        }
       }
     }
-  }
-]
-
-,
-    "objects": {
-        "dataPoint": {
-            "properties": {
-                "defaultColor": {
-                    "type": {
-                        "fill": {
-                            "solid": {
-                                "color": true
-                            }
-                        }
-                    }
-                },
-                "showAllDataPoints": {
-                    "type": {
-                        "bool": true
-                    }
-                },
-                "fill": {
-                    "type": {
-                        "fill": {
-                            "solid": {
-                                "color": true
-                            }
-                        }
-                    }
-                },
-                "fillRule": {
-                    "type": {
-                        "fill": {}
-                    }
-                },
-                 "fontSize": {
-                    "type": {
-                        "formatting": {
-                            "fontSize": true
-                        }
-                    }
-                }
+  ],
+  "objects": {
+    "dashboard": {
+      "properties": {
+        "showTitle": {
+          "type": {
+            "bool": true
+          }
+        },
+        "title": {
+          "type": {
+            "text": true
+          }
+        },
+        "fontSize": {
+          "type": {
+            "numeric": true
+          }
+        },
+        "decimals": {
+          "type": {
+            "numeric": true
+          }
+        },
+        "prefix": {
+          "type": {
+            "text": true
+          }
+        },
+        "suffix": {
+          "type": {
+            "text": true
+          }
+        },
+        "percent": {
+          "type": {
+            "bool": true
+          }
+        },
+        "light": {
+          "type": {
+            "bool": true
+          }
+        },
+        "background": {
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
             }
+          }
+        },
+        "text": {
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "accent": {
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "showComparison": {
+          "type": {
+            "bool": true
+          }
         }
+      }
     },
-    "dataViewMappings": [
-        {
-            "categorical": {
-                "categories": {
-                    "for": {
-                        "in": "category"
-                    },
-                    "dataReductionAlgorithm": {
-                        "top": {}
-                    }
-                },
-                "values": {
-                    "select": [
-                        {
-                            "bind": {
-                                "to": "measure"
-                            }
-                        }
-                    ]
-                }
+    "chart": {
+      "properties": {
+        "show": {
+          "type": {
+            "bool": true
+          }
+        },
+        "lineColor": {
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
             }
+          }
+        },
+        "lineWidth": {
+          "type": {
+            "numeric": true
+          }
+        },
+        "opacity": {
+          "type": {
+            "numeric": true
+          }
+        },
+        "tooltips": {
+          "type": {
+            "bool": true
+          }
+        },
+        "gridlines": {
+          "type": {
+            "bool": true
+          }
+        },
+        "animation": {
+          "type": {
+            "bool": true
+          }
         }
-    ],
-    "privileges": []
+      }
+    },
+    "dataPoint": {
+      "properties": {
+        "defaultColor": {
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "showAllDataPoints": {
+          "type": {
+            "bool": true
+          }
+        },
+        "fill": {
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "fillRule": {
+          "type": {
+            "fill": {}
+          }
+        },
+        "fontSize": {
+          "type": {
+            "formatting": {
+              "fontSize": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "privileges": [],
+  "supportsMultiVisualSelection": true,
+  "supportsKeyboardFocus": true
 }

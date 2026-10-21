@@ -11,7 +11,10 @@
     "pbiviz": "pbiviz",
     "start": "pbiviz start",
     "package": "pbiviz package",
-    "lint": "npx eslint ."
+    "lint": "eslint src",
+    "check": "tsc --noEmit && npm run lint",
+    "build": "pbiviz package",
+    "test": "node tests/run.cjs"
   },
   "dependencies": {
     "d3": "^7.9.0",

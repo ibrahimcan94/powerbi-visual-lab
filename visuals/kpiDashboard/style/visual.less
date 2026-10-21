@@ -130,3 +130,13 @@ body,
 .kpi-card {
     max-width: 100%;
 }
+.kpi-card { --accent:#34d399; position:relative; overflow:auto; }
+.kpi-card header {display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.clear-selection {background:transparent;color:inherit;border:1px solid currentColor;border-radius:6px;padding:4px 8px;font:inherit;font-size:10px;cursor:pointer;opacity:.7;}
+.clear-selection:hover {opacity:1;}
+.clear-selection:focus-visible,.point-target:focus-visible {outline:2px solid var(--accent);outline-offset:3px;}
+.kpi-variance {margin-top:10px;font-size:12px;}
+.kpi-title,.trend-labels,.trend-empty {color:inherit;opacity:.65;}
+.animated .trend-svg {animation:chart-enter .3s ease-out;}
+@keyframes chart-enter {from{opacity:0;}to{opacity:1;}}
+@media(prefers-reduced-motion:reduce){.animated .trend-svg {animation:none;}}

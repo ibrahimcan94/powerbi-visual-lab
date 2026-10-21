@@ -1,4 +1,3 @@
-
 {
   "compilerOptions": {
     "allowJs": false,
@@ -14,7 +13,9 @@
       "dom"
     ],
     "jsx": "react-jsx",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true
   },
   "files": [
     "./src/visual.ts"
