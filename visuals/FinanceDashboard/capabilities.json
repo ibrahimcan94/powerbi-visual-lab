@@ -242,11 +242,6 @@
             "bool": true
           }
         },
-        "demoData": {
-          "type": {
-            "bool": true
-          }
-        },
         "accent": {
           "type": {
             "fill": {

@@ -5,9 +5,8 @@ class AppCard extends f.SimpleCard {
     title=new f.TextInput({name:"title",displayName:"Overview title",value:"Finance overview",placeholder:"Finance overview"});
     activePage=new f.ItemDropdown({name:"activePage",displayName:"Opening page",items:pages,value:pages[0]});
     dark=new f.ToggleSwitch({name:"dark",displayName:"Dark canvas",value:false});
-    demoData=new f.ToggleSwitch({name:"demoData",displayName:"Show sample data when no ledger is bound",value:true});
     accent=new f.ColorPicker({name:"accent",displayName:"Accent color",value:{value:"#2768ed"}});
     currency=new f.TextInput({name:"currency",displayName:"Reporting currency code",value:"USD",placeholder:"USD"});
-    slices=[this.title,this.activePage,this.dark,this.demoData,this.accent,this.currency];
+    slices=[this.title,this.activePage,this.dark,this.accent,this.currency];
 }
 export class FinanceSettings extends f.Model {app=new AppCard();cards=[this.app];}

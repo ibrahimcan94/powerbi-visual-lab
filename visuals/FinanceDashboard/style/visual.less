@@ -63,3 +63,19 @@ html,body { margin:0; }
 
 .high-contrast .positive,.high-contrast .negative,.high-contrast .fd-status {color:var(--fd-text)!important;} .high-contrast .fd-sidebar nav button.active * {color:var(--fd-bg)!important;} .high-contrast .raised rect:not(.fd-hit) {fill:var(--fd-text);}
 
+
+.fd-live-dot.offline {background:#9aa2b2;}
+.fd-connect-panel {max-width:900px;margin:12px auto 30px;background:var(--fd-surface);border:1px solid var(--fd-line);border-radius:14px;padding:42px;text-align:center;box-shadow:0 2px 5px #27345312;}
+.fd-connect-icon {display:grid;place-items:center;width:68px;height:68px;margin:0 auto 22px;border-radius:15px;background:#e9f0ff;color:var(--fd-accent);}
+.fd-connect-panel>.fd-eyebrow {display:block;font-size:9px;letter-spacing:1.5px;}
+.fd-connect-panel h2 {font-size:25px;margin:10px 0;letter-spacing:-.6px;}
+.fd-connect-panel>p {color:var(--fd-muted);font-size:12px;max-width:560px;margin:0 auto;line-height:1.8;}
+.fd-required-fields {display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:27px 0;}
+.fd-required-fields>span {display:flex;align-items:center;gap:6px;padding:10px;background:var(--fd-soft);border:1px solid var(--fd-line);border-radius:6px;font-size:10px;white-space:nowrap;}
+.fd-required-fields svg {color:var(--fd-accent);flex:none;}
+.fd-connect-panel ol {text-align:left;padding:5px 0 8px 20px;color:var(--fd-muted);font-size:11px;line-height:1.9;}
+.fd-connect-panel li {padding:5px 0;}.fd-connect-panel li strong {color:var(--fd-text);}
+.fd-connect-note {border-top:1px solid var(--fd-line);padding-top:18px;display:flex;gap:10px;align-items:flex-start;text-align:left;font-size:10px;color:var(--fd-muted);}.fd-connect-note svg {flex:none;}
+.fd-filterbar select:disabled,.fd-search input:disabled {opacity:.6;cursor:not-allowed;}
+@container(max-width:900px){.fd-required-fields{grid-template-columns:repeat(2,minmax(0,1fr));}.fd-connect-panel{padding:28px;}}
+@container(max-width:570px){.fd-connect-panel{padding:20px 13px;}.fd-connect-panel h2{font-size:21px;}.fd-required-fields{gap:6px;}.fd-required-fields>span{padding:8px 6px;font-size:9px;}}

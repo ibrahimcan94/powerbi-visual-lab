@@ -11,7 +11,7 @@ export interface Invoice {
     issued: string; due: string; amount: number; disputeDate: string | null; rowIndex: number;
     payments: FinanceEvent[]; credits: FinanceEvent[]; promises: FinanceEvent[];
 }
-export interface FinanceDataset { invoices: Invoice[]; periods: string[]; asOf: string; eventCount: number; warnings: string[]; source: "sample" | "report" }
+export interface FinanceDataset { invoices: Invoice[]; periods: string[]; asOf: string; eventCount: number; warnings: string[]; source: "empty" | "report" }
 export interface Filters { asOf: string; region: string; segment: string; collector: string; risk: string; search: string }
 export type InvoiceStatus = "Paid" | "Current" | "Overdue" | "Disputed";
 export interface Position { invoice: Invoice; balance: number; overdue: number; dpd: number; aging: string; disputed: number; status: InvoiceStatus; paid: number; credit: number; closedDate: string | null }
@@ -43,7 +43,7 @@ export function daysBetween(later: string, earlier: string): number { return Mat
 function before(events: FinanceEvent[], asOf: string): number { return events.reduce((sum, e) => sum + (e.eventDate <= asOf ? cents(e.amount) : 0), 0); }
 function inMonth(events: FinanceEvent[], asOf: string): number { return events.reduce((sum, e) => sum + (e.eventDate >= monthStart(asOf) && e.eventDate <= asOf ? cents(e.amount) : 0), 0); }
 
-export function createDataset(events: FinanceEvent[], source: "sample" | "report", initialWarnings: string[] = []): FinanceDataset {
+export function createDataset(events: FinanceEvent[], source: "empty" | "report", initialWarnings: string[] = []): FinanceDataset {
     const invoices = new Map<string, Invoice>(), seen = new Set<string>(), unique: FinanceEvent[] = [];
     let duplicate = 0;
     for (const event of events) {

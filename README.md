@@ -36,3 +36,7 @@ An editable four-page PBIP report is in reports/FinanceI2C. From that folder run
 ## Finance OS — a full dashboard inside one visual
 
 Use visuals/FinanceDashboard for the five-page Invoice-to-Cash application with Material-style sidebar navigation. From that directory run npm ci, npm run check, npm test and npm run build. npm run preview builds an offline interactive browser preview. Its table ledger is a new binding contract; the previous KPI visual is preserved separately. reports/FinanceOS contains the companion one-page/one-visual PBIP; run Prepare-Visual.ps1 -Build there after a fresh checkout. See its START-HERE.md for roles, calculations and Desktop acceptance steps.
+
+## Data-free Finance OS release
+
+Finance OS 2.1.0.0 removes the embedded sample ledger, sample-data setting and fallback. reports/FinanceOS now has a typed zero-row model, header-only CSV templates and a Power Query connection script. Read docs/Finance-OS-Population-Guide.pdf before binding real data. Previous sample-driven report versions are separate historical projects.

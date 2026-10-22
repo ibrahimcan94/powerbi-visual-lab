@@ -1,7 +1,7 @@
 {
   "name": "finance-dashboard",
   "description": "A complete Invoice-to-Cash application inside one Power BI visual",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "repository": {
     "type": "default_template_value",
     "url": "default_template_value"
