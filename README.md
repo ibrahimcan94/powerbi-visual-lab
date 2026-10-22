@@ -39,4 +39,4 @@ Use visuals/FinanceDashboard for the five-page Invoice-to-Cash application with 
 
 ## Data-free Finance OS release
 
-Finance OS 2.1.0.0 removes the embedded sample ledger, sample-data setting and fallback. reports/FinanceOS now has a typed zero-row model, header-only CSV templates and a Power Query connection script. Read docs/Finance-OS-Population-Guide.pdf before binding real data. Previous sample-driven report versions are separate historical projects.
+Finance OS 2.1.0.0 has an empty default model, no sample-data setting and no fallback. reports/FinanceOS includes header-only CSV templates and a Power Query connection script; the optional fictional event ledger is in reports/FinanceOS/sample-data/FinanceLedger-Sample.csv and is not loaded automatically. Read docs/Finance-OS-Population-Guide.pdf for field mappings and setup. Previous sample-driven report versions are separate historical projects.
