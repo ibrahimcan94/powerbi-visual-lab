@@ -1,0 +1,7 @@
+**/.pbi/
+FinanceOS.Report/CustomVisuals/
+*.pbiviz
+Preview.html
+*.png
+Validation.json
+Browser-tests.json

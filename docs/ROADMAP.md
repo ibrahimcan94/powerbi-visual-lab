@@ -37,3 +37,9 @@ Next refinements: native tooltip service, external selection synchronization, co
 ## Finance I2C extension
 Four-page PBIP report, seven embedded source tables plus Metrics, 49 DAX measures, 57 visual containers, 12 monthly balance reconciliations. Report schemas and TOM deserialization pass. Desktop/DAX runtime acceptance remains manual. KPI compact layouts and lower-is-better variance added; nine visual unit tests, TypeScript, lint and packaging pass.
 
+
+## Finance OS: single-visual application
+
+Added visuals/FinanceDashboard alongside the existing KPI visual, with its own GUID and table-ledger contract. Five internal pages share navigation, period/dimension/search filters, original Material-style components, invoice drawers, D3 charts and an integer-cent finance engine. The supplied Creative Tim public repository contains reference media/docs rather than application source.
+
+Validation: fourteen finance tests, strict TypeScript, ESLint, production packaging, browser interaction checks and responsive widths 320/400/800/1600. The companion report has one report page and one visual, with a self-contained event ledger. Desktop refresh, host selection/context menu, native formatting persistence, high contrast and report-save behavior remain manual acceptance items.

@@ -1,0 +1,305 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "FinanceOSSingleVisual01",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "width": 1600,
+    "height": 1050,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "financeDashboardA870C731D1E14AC5B179873AFCA542D0",
+    "query": {
+      "queryState": {
+        "eventId": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "EventID"
+                }
+              },
+              "queryRef": "FinanceLedger.EventID",
+              "nativeQueryRef": "EventID"
+            }
+          ]
+        },
+        "invoiceId": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "InvoiceID"
+                }
+              },
+              "queryRef": "FinanceLedger.InvoiceID",
+              "nativeQueryRef": "InvoiceID"
+            }
+          ]
+        },
+        "customer": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "Customer"
+                }
+              },
+              "queryRef": "FinanceLedger.Customer",
+              "nativeQueryRef": "Customer"
+            }
+          ]
+        },
+        "region": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "FinanceLedger.Region",
+              "nativeQueryRef": "Region"
+            }
+          ]
+        },
+        "segment": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "Segment"
+                }
+              },
+              "queryRef": "FinanceLedger.Segment",
+              "nativeQueryRef": "Segment"
+            }
+          ]
+        },
+        "collector": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "Collector"
+                }
+              },
+              "queryRef": "FinanceLedger.Collector",
+              "nativeQueryRef": "Collector"
+            }
+          ]
+        },
+        "risk": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "RiskTier"
+                }
+              },
+              "queryRef": "FinanceLedger.RiskTier",
+              "nativeQueryRef": "RiskTier"
+            }
+          ]
+        },
+        "invoiceDate": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "InvoiceDate"
+                }
+              },
+              "queryRef": "FinanceLedger.InvoiceDate",
+              "nativeQueryRef": "InvoiceDate"
+            }
+          ]
+        },
+        "dueDate": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "DueDate"
+                }
+              },
+              "queryRef": "FinanceLedger.DueDate",
+              "nativeQueryRef": "DueDate"
+            }
+          ]
+        },
+        "eventDate": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "EventDate"
+                }
+              },
+              "queryRef": "FinanceLedger.EventDate",
+              "nativeQueryRef": "EventDate"
+            }
+          ]
+        },
+        "eventType": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "EventType"
+                }
+              },
+              "queryRef": "FinanceLedger.EventType",
+              "nativeQueryRef": "EventType"
+            }
+          ]
+        },
+        "amount": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FinanceLedger"
+                        }
+                      },
+                      "Property": "Amount"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FinanceLedger.Amount)",
+              "nativeQueryRef": "Amount"
+            }
+          ]
+        },
+        "disputeDate": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "DisputeDate"
+                }
+              },
+              "queryRef": "FinanceLedger.DisputeDate",
+              "nativeQueryRef": "DisputeDate"
+            }
+          ]
+        },
+        "promiseDue": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinanceLedger"
+                    }
+                  },
+                  "Property": "PromiseDue"
+                }
+              },
+              "queryRef": "FinanceLedger.PromiseDue",
+              "nativeQueryRef": "PromiseDue"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

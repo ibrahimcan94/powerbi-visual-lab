@@ -32,3 +32,7 @@ Chart is capped at 1,000 categories by host reduction; there is no paging. Compa
 
 An editable four-page PBIP report is in reports/FinanceI2C. From that folder run ./Prepare-KpiVisual.ps1 -Build to build and install the ignored private visual resources, then open FinanceI2C.pbip and Refresh. The report embeds synthetic USD invoice, payment, credit, promise and AR snapshot data. See START-HERE.md for metric definitions, date semantics and Desktop acceptance checks. The separate downloadable ZIP already includes the compiled private visual. KPI formatting now includes Lower values are better for finance metrics, and compact cards adapt below 260 pixels.
 
+
+## Finance OS — a full dashboard inside one visual
+
+Use visuals/FinanceDashboard for the five-page Invoice-to-Cash application with Material-style sidebar navigation. From that directory run npm ci, npm run check, npm test and npm run build. npm run preview builds an offline interactive browser preview. Its table ledger is a new binding contract; the previous KPI visual is preserved separately. reports/FinanceOS contains the companion one-page/one-visual PBIP; run Prepare-Visual.ps1 -Build there after a fresh checkout. See its START-HERE.md for roles, calculations and Desktop acceptance steps.

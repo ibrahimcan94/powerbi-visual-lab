@@ -1,0 +1,272 @@
+{
+  "dataRoles": [
+    {
+      "name": "eventId",
+      "displayName": "Event ID",
+      "kind": "Grouping"
+    },
+    {
+      "name": "invoiceId",
+      "displayName": "Invoice ID",
+      "kind": "Grouping"
+    },
+    {
+      "name": "customer",
+      "displayName": "Customer",
+      "kind": "Grouping"
+    },
+    {
+      "name": "region",
+      "displayName": "Region",
+      "kind": "Grouping"
+    },
+    {
+      "name": "segment",
+      "displayName": "Segment",
+      "kind": "Grouping"
+    },
+    {
+      "name": "collector",
+      "displayName": "Collector",
+      "kind": "Grouping"
+    },
+    {
+      "name": "risk",
+      "displayName": "Risk tier",
+      "kind": "Grouping"
+    },
+    {
+      "name": "invoiceDate",
+      "displayName": "Invoice date",
+      "kind": "Grouping"
+    },
+    {
+      "name": "dueDate",
+      "displayName": "Due date",
+      "kind": "Grouping"
+    },
+    {
+      "name": "eventDate",
+      "displayName": "Event date",
+      "kind": "Grouping"
+    },
+    {
+      "name": "eventType",
+      "displayName": "Event type",
+      "kind": "Grouping"
+    },
+    {
+      "name": "amount",
+      "displayName": "Event amount",
+      "kind": "Measure"
+    },
+    {
+      "name": "disputeDate",
+      "displayName": "Dispute date (optional)",
+      "kind": "Grouping"
+    },
+    {
+      "name": "promiseDue",
+      "displayName": "Promise due (optional)",
+      "kind": "Grouping"
+    }
+  ],
+  "dataViewMappings": [
+    {
+      "conditions": [
+        {
+          "eventId": {
+            "max": 1
+          },
+          "invoiceId": {
+            "max": 1
+          },
+          "customer": {
+            "max": 1
+          },
+          "region": {
+            "max": 1
+          },
+          "segment": {
+            "max": 1
+          },
+          "collector": {
+            "max": 1
+          },
+          "risk": {
+            "max": 1
+          },
+          "invoiceDate": {
+            "max": 1
+          },
+          "dueDate": {
+            "max": 1
+          },
+          "eventDate": {
+            "max": 1
+          },
+          "eventType": {
+            "max": 1
+          },
+          "amount": {
+            "max": 1
+          },
+          "disputeDate": {
+            "max": 1
+          },
+          "promiseDue": {
+            "max": 1
+          }
+        }
+      ],
+      "table": {
+        "rows": {
+          "select": [
+            {
+              "for": {
+                "in": "eventId"
+              }
+            },
+            {
+              "for": {
+                "in": "invoiceId"
+              }
+            },
+            {
+              "for": {
+                "in": "customer"
+              }
+            },
+            {
+              "for": {
+                "in": "region"
+              }
+            },
+            {
+              "for": {
+                "in": "segment"
+              }
+            },
+            {
+              "for": {
+                "in": "collector"
+              }
+            },
+            {
+              "for": {
+                "in": "risk"
+              }
+            },
+            {
+              "for": {
+                "in": "invoiceDate"
+              }
+            },
+            {
+              "for": {
+                "in": "dueDate"
+              }
+            },
+            {
+              "for": {
+                "in": "eventDate"
+              }
+            },
+            {
+              "for": {
+                "in": "eventType"
+              }
+            },
+            {
+              "for": {
+                "in": "amount"
+              }
+            },
+            {
+              "for": {
+                "in": "disputeDate"
+              }
+            },
+            {
+              "for": {
+                "in": "promiseDue"
+              }
+            }
+          ],
+          "dataReductionAlgorithm": {
+            "top": {
+              "count": 30000
+            }
+          }
+        }
+      }
+    }
+  ],
+  "objects": {
+    "financeApp": {
+      "displayName": "Finance workspace",
+      "properties": {
+        "title": {
+          "type": {
+            "text": true
+          }
+        },
+        "activePage": {
+          "type": {
+            "enumeration": [
+              {
+                "value": "overview",
+                "displayName": "Overview"
+              },
+              {
+                "value": "receivables",
+                "displayName": "Receivables"
+              },
+              {
+                "value": "collections",
+                "displayName": "Collections"
+              },
+              {
+                "value": "customers",
+                "displayName": "Customers"
+              },
+              {
+                "value": "invoices",
+                "displayName": "Invoices"
+              }
+            ]
+          }
+        },
+        "dark": {
+          "type": {
+            "bool": true
+          }
+        },
+        "demoData": {
+          "type": {
+            "bool": true
+          }
+        },
+        "accent": {
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "currency": {
+          "type": {
+            "text": true
+          }
+        }
+      }
+    }
+  },
+  "privileges": [],
+  "supportsMultiVisualSelection": true,
+  "supportsKeyboardFocus": true,
+  "supportsLandingPage": true,
+  "supportsEmptyDataView": true
+}
