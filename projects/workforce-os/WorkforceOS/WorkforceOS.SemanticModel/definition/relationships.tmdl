@@ -1,0 +1,20 @@
+relationship 8c033ed4-85ab-4b30-841e-f63615df4abb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Workforce.Snapshot_Date
+	toColumn: LocalDateTable_acae25f6-6108-499a-be9b-886018fca310.Date
+
+relationship 3b11881d-5847-4f2d-89aa-0ef70aadc259
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Workforce.'Latest Hire Date'
+	toColumn: LocalDateTable_6afcde4b-0a21-4eaf-ad65-f96a7ed14e09.Date
+
+relationship 576f842d-43ef-4c35-a0b2-42fde991c0c4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Workforce.'Original Hire Date'
+	toColumn: LocalDateTable_2145e86b-e086-4583-ace1-a475e40efbd0.Date
+
+relationship cb2c14ae-0e69-4122-9800-1e10653d920b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Workforce.'Effective Date for Current Position'
+	toColumn: LocalDateTable_9becd9d8-984e-4219-ae20-c83a7a2dc351.Date
+

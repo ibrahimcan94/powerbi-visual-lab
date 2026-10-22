@@ -40,3 +40,8 @@ Use visuals/FinanceDashboard for the five-page Invoice-to-Cash application with 
 ## Data-free Finance OS release
 
 Finance OS 2.1.0.0 has an empty default model, no sample-data setting and no fallback. reports/FinanceOS includes header-only CSV templates and a Power Query connection script; the optional fictional event ledger is in reports/FinanceOS/sample-data/FinanceLedger-Sample.csv and is not loaded automatically. Read docs/Finance-OS-Population-Guide.pdf for field mappings and setup. Previous sample-driven report versions are separate historical projects.
+
+## Workforce OS
+
+The Workday-shaped workforce dashboard is in [projects/workforce-os](projects/workforce-os). It includes six interactive views, a Power BI project, a packaged custom visual, 20 DAX measures, fictional sample data, and a Workday export mapping guide. Open projects/workforce-os/WorkforceOS/WorkforceOS.pbip and refresh.
+

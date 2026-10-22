@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0.0",
+  "author": {
+    "name": "PowerBI Visual Lab",
+    "email": "ibrahimcan94@gmail.com"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/workforceDashboardB923D806AC26443FA831E7709A782651.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "name": "workforceDashboard",
+    "displayName": "Workforce OS | People Analytics",
+    "guid": "workforceDashboardB923D806AC26443FA831E7709A782651",
+    "visualClassName": "Visual",
+    "version": "1.0.0.0",
+    "description": "Workday snapshot workforce analytics with organization exploration, FTE, tenure, composition and quality checks.",
+    "supportUrl": "https://github.com/ibrahimcan94/powerbi-visual-lab",
+    "gitHubUrl": "https://github.com/ibrahimcan94/powerbi-visual-lab"
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

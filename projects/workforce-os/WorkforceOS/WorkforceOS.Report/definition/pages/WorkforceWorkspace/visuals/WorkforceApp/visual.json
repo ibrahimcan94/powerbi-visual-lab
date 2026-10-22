@@ -1,0 +1,480 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "WorkforceApp",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "width": 1600,
+    "height": 1100,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "workforceDashboardB923D806AC26443FA831E7709A782651",
+    "query": {
+      "queryState": {
+        "id": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Workday ID"
+                }
+              },
+              "queryRef": "Workforce.Workday ID",
+              "nativeQueryRef": "Workday ID"
+            }
+          ]
+        },
+        "snapshot": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Snapshot_Date"
+                }
+              },
+              "queryRef": "Workforce.Snapshot_Date",
+              "nativeQueryRef": "Snapshot_Date"
+            }
+          ]
+        },
+        "name": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Worker Display Name"
+                }
+              },
+              "queryRef": "Workforce.Worker Display Name",
+              "nativeQueryRef": "Worker Display Name"
+            }
+          ]
+        },
+        "status": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Worker Status"
+                }
+              },
+              "queryRef": "Workforce.Worker Status",
+              "nativeQueryRef": "Worker Status"
+            }
+          ]
+        },
+        "fte": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Full Time Equivalent (FTE)"
+                }
+              },
+              "queryRef": "Workforce.Full Time Equivalent (FTE)",
+              "nativeQueryRef": "Full Time Equivalent (FTE)"
+            }
+          ]
+        },
+        "exclude": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Exclude from Headcount"
+                }
+              },
+              "queryRef": "Workforce.Exclude from Headcount",
+              "nativeQueryRef": "Exclude from Headcount"
+            }
+          ]
+        },
+        "type": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Worker Type"
+                }
+              },
+              "queryRef": "Workforce.Worker Type",
+              "nativeQueryRef": "Worker Type"
+            }
+          ]
+        },
+        "employeeType": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Employee Type"
+                }
+              },
+              "queryRef": "Workforce.Employee Type",
+              "nativeQueryRef": "Employee Type"
+            }
+          ]
+        },
+        "hire": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Latest Hire Date"
+                }
+              },
+              "queryRef": "Workforce.Latest Hire Date",
+              "nativeQueryRef": "Latest Hire Date"
+            }
+          ]
+        },
+        "originalHire": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Original Hire Date"
+                }
+              },
+              "queryRef": "Workforce.Original Hire Date",
+              "nativeQueryRef": "Original Hire Date"
+            }
+          ]
+        },
+        "positionDate": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Effective Date for Current Position"
+                }
+              },
+              "queryRef": "Workforce.Effective Date for Current Position",
+              "nativeQueryRef": "Effective Date for Current Position"
+            }
+          ]
+        },
+        "manager": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Is Manager"
+                }
+              },
+              "queryRef": "Workforce.Is Manager",
+              "nativeQueryRef": "Is Manager"
+            }
+          ]
+        },
+        "family": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Job Family"
+                }
+              },
+              "queryRef": "Workforce.Job Family",
+              "nativeQueryRef": "Job Family"
+            }
+          ]
+        },
+        "title": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Job Title"
+                }
+              },
+              "queryRef": "Workforce.Job Title",
+              "nativeQueryRef": "Job Title"
+            }
+          ]
+        },
+        "country": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Work Country"
+                }
+              },
+              "queryRef": "Workforce.Work Country",
+              "nativeQueryRef": "Work Country"
+            }
+          ]
+        },
+        "region": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Global Region"
+                }
+              },
+              "queryRef": "Workforce.Global Region",
+              "nativeQueryRef": "Global Region"
+            }
+          ]
+        },
+        "city": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Work City"
+                }
+              },
+              "queryRef": "Workforce.Work City",
+              "nativeQueryRef": "Work City"
+            }
+          ]
+        },
+        "cost": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Cost Center - Name"
+                }
+              },
+              "queryRef": "Workforce.Cost Center - Name",
+              "nativeQueryRef": "Cost Center - Name"
+            }
+          ]
+        },
+        "costId": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Cost Center - ID"
+                }
+              },
+              "queryRef": "Workforce.Cost Center - ID",
+              "nativeQueryRef": "Cost Center - ID"
+            }
+          ]
+        },
+        "time": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Time Type"
+                }
+              },
+              "queryRef": "Workforce.Time Type",
+              "nativeQueryRef": "Time Type"
+            }
+          ]
+        },
+        "grade": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Job Grade - Number"
+                }
+              },
+              "queryRef": "Workforce.Job Grade - Number",
+              "nativeQueryRef": "Job Grade - Number"
+            }
+          ]
+        },
+        "managerId": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Manager ID"
+                }
+              },
+              "queryRef": "Workforce.Manager ID",
+              "nativeQueryRef": "Manager ID"
+            }
+          ]
+        },
+        "level": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Management Level according to Job Profile"
+                }
+              },
+              "queryRef": "Workforce.Management Level according to Job Profile",
+              "nativeQueryRef": "Management Level according to Job Profile"
+            }
+          ]
+        },
+        "entity": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workforce"
+                    }
+                  },
+                  "Property": "Government Reporting Entity"
+                }
+              },
+              "queryRef": "Workforce.Government Reporting Entity",
+              "nativeQueryRef": "Government Reporting Entity"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

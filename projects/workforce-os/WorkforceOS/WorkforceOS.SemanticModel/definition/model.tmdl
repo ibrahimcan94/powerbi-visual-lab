@@ -1,0 +1,21 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Workforce"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Workforce
+ref table DateTableTemplate_1c8413ba-0d4d-4918-82ec-01b34cac7fcd
+ref table LocalDateTable_acae25f6-6108-499a-be9b-886018fca310
+ref table LocalDateTable_6afcde4b-0a21-4eaf-ad65-f96a7ed14e09
+ref table LocalDateTable_2145e86b-e086-4583-ace1-a475e40efbd0
+ref table LocalDateTable_9becd9d8-984e-4219-ae20-c83a7a2dc351
+

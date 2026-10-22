@@ -1,0 +1,13 @@
+screenshots/
+visual/node_modules/
+visual/.tmp/
+visual/dist/
+visual/preview/_build/
+visual/webpack.statistics.prod.html
+scripts/schema-cache/
+**/.pbi/
+*.zip
+
+# Distribute the ready-to-open synthetic report visual
+!WorkforceOS/Workforce-OS.pbiviz
+

@@ -19,3 +19,9 @@ Thumbs.db
 # Debug output
 *.log
 webpack.statistics.*.html
+# Generated validation and diagnostic outputs
+**/Validation.json
+**/ui-validation.json
+**/test-results/
+**/playwright-report/
+

@@ -1,0 +1,20 @@
+const assert=require('assert/strict'),fs=require('fs'),path=require('path'),vm=require('vm');
+const ts=require('../visual/node_modules/typescript');
+const code=ts.transpileModule(fs.readFileSync(path.join(__dirname,'../visual/src/model.ts'),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+const context={exports:{}};vm.runInNewContext(code,context);const m=context.exports;
+const w=(id,fte,extra={})=>({id,fte,snapshot:'2026-10-21',hire:'2026-01-01',status:'Active',exclude:'No',type:'Employee',manager:'No',...extra});
+const base=[w('a',.5),w('b',.75),w('c',1)];
+assert.equal(m.stats(base).hc,3);assert.equal(m.stats(base).fte,2.25);
+assert.equal(m.stats([...base,w('d',1,{exclude:'Yes'}),w('e',1,{status:'Terminated'})]).hc,3);
+assert.equal(m.stats([...base,w('f',.75,{status:'On Leave'})]).fte,3);
+assert.equal(m.snapshotRows([...base,...base.map(x=>({...x,snapshot:'2026-09-30'}))],'2026-10-21').rows.length,3);
+assert.equal(m.snapshotRows([...base,base[0]],'2026-10-21').duplicates,1);
+assert.equal(m.snapshotRows([...base,w('a',1)],'2026-10-21').conflicts,1);
+assert.equal(m.stats(m.snapshotRows([...base,base[0]],'2026-10-21').rows).fte,2.25);
+assert.equal(m.tenure(w('x',1,{hire:'2026-10-21',originalHire:'2000-01-01'})),0);
+assert.equal(m.band(w('x',1,{hire:'2026-10-01'})),'<3 months');
+assert.equal(m.band(w('x',1,{hire:'2030-01-01'})),'Unknown');
+assert.equal(m.stats([]).fte,0);
+const sample=require('../visual/src/sample.json');
+for(const date of [...new Set(sample.map(w=>w.snapshot))]){const s=m.snapshotRows(sample,date);assert.equal(s.duplicates,0);const a=m.stats(s.rows);assert.equal(a.employees+a.contingent,a.hc);assert(a.fte<=a.hc);assert.equal(m.groups(s.rows,'country',true).reduce((a,b)=>a+b[1],0),a.fte);}
+console.log('PASS: 14 metric / reconciliation assertions, including fractional FTE, last-hire tenure, duplicate detection and snapshot isolation.');

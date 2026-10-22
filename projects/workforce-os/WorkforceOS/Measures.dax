@@ -1,0 +1,59 @@
+Selected Snapshot =
+MAXX(ALLSELECTED(Workforce), Workforce[Snapshot_Date])
+
+Included Headcount =
+VAR D = [Selected Snapshot] RETURN CALCULATE(DISTINCTCOUNT(Workforce[Workday ID]), Workforce[Snapshot_Date] = D, Workforce[Included] = TRUE())
+
+Total FTE =
+VAR D = [Selected Snapshot] RETURN CALCULATE(SUM(Workforce[Full Time Equivalent (FTE)]), Workforce[Snapshot_Date] = D, Workforce[Included] = TRUE())
+
+Employees =
+CALCULATE([Included Headcount], KEEPFILTERS(Workforce[Worker Type] = "Employee"))
+
+Contingent Workers =
+CALCULATE([Included Headcount], KEEPFILTERS(Workforce[Worker Type] = "Contingent Worker"))
+
+People Managers =
+CALCULATE([Included Headcount], KEEPFILTERS(Workforce[Is Manager] = "Yes"))
+
+On Leave =
+CALCULATE([Included Headcount], KEEPFILTERS(Workforce[Worker Status] = "On Leave"))
+
+Part Time Workers =
+CALCULATE([Included Headcount], KEEPFILTERS(Workforce[Time Type] = "Part time"))
+
+FTE per Worker =
+DIVIDE([Total FTE], [Included Headcount])
+
+Capacity Gap =
+[Included Headcount] - [Total FTE]
+
+Manager Share =
+DIVIDE([People Managers], [Included Headcount])
+
+Contingent Share =
+DIVIDE([Contingent Workers], [Included Headcount])
+
+On Leave Share =
+DIVIDE([On Leave], [Included Headcount])
+
+Part Time Share =
+DIVIDE([Part Time Workers], [Included Headcount])
+
+Average Tenure Years =
+VAR D = [Selected Snapshot] RETURN CALCULATE(AVERAGE(Workforce[Tenure Years]), Workforce[Snapshot_Date] = D, Workforce[Included] = TRUE(), Workforce[Latest Hire Date] <> BLANK(), Workforce[Tenure Years] >= 0)
+
+Median Tenure Years =
+VAR D = [Selected Snapshot] RETURN CALCULATE(MEDIAN(Workforce[Tenure Years]), Workforce[Snapshot_Date] = D, Workforce[Included] = TRUE(), Workforce[Latest Hire Date] <> BLANK(), Workforce[Tenure Years] >= 0)
+
+Current Workers Hired Last 90 Days =
+VAR D = [Selected Snapshot] RETURN CALCULATE([Included Headcount], KEEPFILTERS(Workforce[Latest Hire Date] >= D - 90), KEEPFILTERS(Workforce[Latest Hire Date] <= D))
+
+Current Workers Hired YTD =
+VAR D = [Selected Snapshot] RETURN CALCULATE([Included Headcount], KEEPFILTERS(Workforce[Latest Hire Date] >= DATE(YEAR(D),1,1)), KEEPFILTERS(Workforce[Latest Hire Date] <= D))
+
+Countries =
+VAR D = [Selected Snapshot] RETURN CALCULATE(DISTINCTCOUNT(Workforce[Work Country]), Workforce[Snapshot_Date] = D, Workforce[Included] = TRUE(), Workforce[Work Country] <> BLANK())
+
+Cost Centers =
+VAR D = [Selected Snapshot] RETURN CALCULATE(DISTINCTCOUNT(Workforce[Cost Center - ID]), Workforce[Snapshot_Date] = D, Workforce[Included] = TRUE(), Workforce[Cost Center - ID] <> BLANK())

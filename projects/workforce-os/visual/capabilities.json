@@ -1,0 +1,274 @@
+{
+  "dataRoles": [
+    {
+      "name": "id",
+      "displayName": "Workday ID",
+      "kind": "Grouping"
+    },
+    {
+      "name": "snapshot",
+      "displayName": "Snapshot_Date",
+      "kind": "Grouping"
+    },
+    {
+      "name": "name",
+      "displayName": "Worker Display Name",
+      "kind": "Grouping"
+    },
+    {
+      "name": "status",
+      "displayName": "Worker Status",
+      "kind": "Grouping"
+    },
+    {
+      "name": "fte",
+      "displayName": "Full Time Equivalent (FTE)",
+      "kind": "Grouping"
+    },
+    {
+      "name": "exclude",
+      "displayName": "Exclude from Headcount",
+      "kind": "Grouping"
+    },
+    {
+      "name": "type",
+      "displayName": "Worker Type",
+      "kind": "Grouping"
+    },
+    {
+      "name": "employeeType",
+      "displayName": "Employee Type",
+      "kind": "Grouping"
+    },
+    {
+      "name": "hire",
+      "displayName": "Latest Hire Date",
+      "kind": "Grouping"
+    },
+    {
+      "name": "originalHire",
+      "displayName": "Original Hire Date",
+      "kind": "Grouping"
+    },
+    {
+      "name": "positionDate",
+      "displayName": "Effective Date for Current Position",
+      "kind": "Grouping"
+    },
+    {
+      "name": "manager",
+      "displayName": "Is Manager",
+      "kind": "Grouping"
+    },
+    {
+      "name": "family",
+      "displayName": "Job Family",
+      "kind": "Grouping"
+    },
+    {
+      "name": "title",
+      "displayName": "Job Title",
+      "kind": "Grouping"
+    },
+    {
+      "name": "country",
+      "displayName": "Work Country",
+      "kind": "Grouping"
+    },
+    {
+      "name": "region",
+      "displayName": "Global Region",
+      "kind": "Grouping"
+    },
+    {
+      "name": "city",
+      "displayName": "Work City",
+      "kind": "Grouping"
+    },
+    {
+      "name": "cost",
+      "displayName": "Cost Center - Name",
+      "kind": "Grouping"
+    },
+    {
+      "name": "costId",
+      "displayName": "Cost Center - ID",
+      "kind": "Grouping"
+    },
+    {
+      "name": "time",
+      "displayName": "Time Type",
+      "kind": "Grouping"
+    },
+    {
+      "name": "grade",
+      "displayName": "Job Grade - Number",
+      "kind": "Grouping"
+    },
+    {
+      "name": "managerId",
+      "displayName": "Manager ID",
+      "kind": "Grouping"
+    },
+    {
+      "name": "level",
+      "displayName": "Management Level according to Job Profile",
+      "kind": "Grouping"
+    },
+    {
+      "name": "entity",
+      "displayName": "Government Reporting Entity",
+      "kind": "Grouping"
+    }
+  ],
+  "dataViewMappings": [
+    {
+      "table": {
+        "rows": {
+          "select": [
+            {
+              "for": {
+                "in": "id"
+              }
+            },
+            {
+              "for": {
+                "in": "snapshot"
+              }
+            },
+            {
+              "for": {
+                "in": "name"
+              }
+            },
+            {
+              "for": {
+                "in": "status"
+              }
+            },
+            {
+              "for": {
+                "in": "fte"
+              }
+            },
+            {
+              "for": {
+                "in": "exclude"
+              }
+            },
+            {
+              "for": {
+                "in": "type"
+              }
+            },
+            {
+              "for": {
+                "in": "employeeType"
+              }
+            },
+            {
+              "for": {
+                "in": "hire"
+              }
+            },
+            {
+              "for": {
+                "in": "originalHire"
+              }
+            },
+            {
+              "for": {
+                "in": "positionDate"
+              }
+            },
+            {
+              "for": {
+                "in": "manager"
+              }
+            },
+            {
+              "for": {
+                "in": "family"
+              }
+            },
+            {
+              "for": {
+                "in": "title"
+              }
+            },
+            {
+              "for": {
+                "in": "country"
+              }
+            },
+            {
+              "for": {
+                "in": "region"
+              }
+            },
+            {
+              "for": {
+                "in": "city"
+              }
+            },
+            {
+              "for": {
+                "in": "cost"
+              }
+            },
+            {
+              "for": {
+                "in": "costId"
+              }
+            },
+            {
+              "for": {
+                "in": "time"
+              }
+            },
+            {
+              "for": {
+                "in": "grade"
+              }
+            },
+            {
+              "for": {
+                "in": "managerId"
+              }
+            },
+            {
+              "for": {
+                "in": "level"
+              }
+            },
+            {
+              "for": {
+                "in": "entity"
+              }
+            }
+          ],
+          "dataReductionAlgorithm": {
+            "window": {
+              "count": 30000
+            }
+          }
+        }
+      }
+    }
+  ],
+  "privileges": [],
+  "supportsKeyboardFocus": true,
+  "supportsLandingPage": true,
+  "supportsEmptyDataView": true,
+  "objects": {
+    "workspace": {
+      "properties": {
+        "demo": {
+          "type": {
+            "bool": true
+          }
+        }
+      }
+    }
+  }
+}

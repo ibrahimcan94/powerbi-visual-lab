@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "WorkforceOS"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "044dcd42-da54-4390-bb94-9eee1c26c230"
+  }
+}
