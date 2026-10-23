@@ -1,5 +1,5 @@
 const assert=require('assert/strict'),fs=require('fs'),path=require('path'),vm=require('vm');
-const ts=require('../visual/node_modules/typescript');
+const ts=require('typescript');
 const code=ts.transpileModule(fs.readFileSync(path.join(__dirname,'../visual/src/model.ts'),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const context={exports:{}};vm.runInNewContext(code,context);const m=context.exports;
 const w=(id,fte,extra={})=>({id,fte,snapshot:'2026-10-21',hire:'2026-01-01',status:'Active',exclude:'No',type:'Employee',manager:'No',...extra});

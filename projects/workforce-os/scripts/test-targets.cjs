@@ -1,5 +1,5 @@
 const fs=require('fs'),assert=require('node:assert/strict'),vm=require('vm'),path=require('path');
-const root=path.resolve(__dirname,'..'),ts=require(path.join(root,'targets-visual/node_modules/typescript'));
+const root=path.resolve(__dirname,'..'),ts=require('typescript');
 const code=ts.transpileModule(fs.readFileSync(path.join(root,'targets-visual/src/model.ts'),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const context={exports:{}};vm.runInNewContext(code,context);const {compare,normalize,previousMonth,percentage}=context.exports;
 const rows=normalize(require('../targets-visual/src/sample.json')),oct=compare(rows,'2026-10');

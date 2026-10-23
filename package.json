@@ -1,0 +1,27 @@
+{
+  "name": "business-os",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "visuals/FinanceDashboard",
+    "projects/workforce-os/visual",
+    "projects/workforce-os/targets-visual"
+  ],
+  "scripts": {
+    "check": "npm run check --workspaces",
+    "test": "npm test --workspaces",
+    "demo": "node scripts/build-demos.cjs",
+    "build": "npm run build --workspaces",
+    "release": "npm run demo && npm run build && pwsh -NoProfile -File scripts/release.ps1",
+    "release:finance": "node scripts/build-demos.cjs finance && npm run build -w finance-dashboard && pwsh -NoProfile -File scripts/release.ps1 -Tool finance",
+    "release:workforce": "node scripts/build-demos.cjs workforce && npm run build -w workforce-dashboard && npm run build -w workforce-monthly-targets && pwsh -NoProfile -File scripts/release.ps1 -Tool workforce",
+    "test:demo": "node scripts/test-demos.cjs"
+  },
+  "devDependencies": {
+    "less": "4.4.2",
+    "playwright": "1.62.1",
+    "powerbi-visuals-tools": "7.2.1",
+    "ts-loader": "9.5.4",
+    "webpack": "5.112.1"
+  }
+}

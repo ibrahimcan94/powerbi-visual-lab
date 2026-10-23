@@ -4,7 +4,7 @@ Five internal React pages share a Material-style sidebar, filters, D3 charts, ta
 
 ## Development
 
-Install Node.js and Power BI visuals tools 7.2.1 globally. Run npm ci, npm run check, npm test, npm run build. npm run preview builds an offline, empty application preview. The tsconfig files entry remains src/visual.ts. Runtime dependencies are unchanged: React, D3 and Power BI utilities. Tests use small in-memory fixtures outside the production entry graph; no test records are included in the visual package.
+From the repository root, run `npm ci`. Dependencies and the Power BI CLI are managed by the root workspace and lockfile. Run `npm run check -w finance-dashboard`, `npm test -w finance-dashboard`, and `npm run build -w finance-dashboard`. `npm run demo` builds the offline browser demos; `npm run release:finance` packages Finance OS independently. Open `../../demos/finance/index.html` for the committed synthetic browser demo. The production entry point remains `src/visual.ts` and does not import demo records.
 
 ## Architecture and contract
 

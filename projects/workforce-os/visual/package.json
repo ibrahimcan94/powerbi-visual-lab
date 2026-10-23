@@ -8,12 +8,12 @@
   },
   "license": "MIT",
   "scripts": {
-    "pbiviz": "pbiviz",
-    "start": "pbiviz start",
-    "package": "pbiviz package",
+    "pbiviz": "node ../../../scripts/pbiviz.cjs",
+    "start": "node ../../../scripts/pbiviz.cjs start",
+    "package": "node ../../../scripts/pbiviz.cjs package",
     "lint": "eslint src",
     "check": "tsc --noEmit",
-    "build": "pbiviz package",
+    "build": "node ../../../scripts/pbiviz.cjs package",
     "test": "node ../scripts/test.cjs",
     "preview": "node scripts/build-preview.cjs"
   },

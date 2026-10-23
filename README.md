@@ -1,47 +1,53 @@
-# Power BI Visual Lab
+# Business OS
 
-A React / TypeScript / D3 custom KPI visual, extending the original visual GUID and trend role. Default dark theme, optional light/high contrast theme, configurable KPI and chart, independent headline and comparison measures, variance, date-aware chart, missing-data gaps, keyboard point selection and native selection/context menu APIs.
+Finance OS and Workforce OS are independently deployable tools with a shared design system and build tooling. Existing KPI and Finance I2C projects are retained; see docs/legacy-development.md.
 
-## Develop on Windows
+## Demo immediately after unzipping
 
-Use Node.js supported by Power BI visuals tools 7.2.1. Install the CLI with npm install -g powerbi-visuals-tools@7.2.1 if absent. From visuals/kpiDashboard run npm ci, npm run check, npm test, npm start, and npm run build. Build creates dist/*.pbiviz. The CLI is currently supplied globally; no new runtime dependencies were added. npm run package is also retained.
+Open **START-DEMO.html** at the repository root, then choose Finance OS, Workforce OS or Monthly Targets. The committed demos are interactive, contain fictional data, and work offline without Node.js, Power BI, a server or credentials. Keep the extracted folder structure intact.
 
-## Bind measures correctly
+## Build from source
 
-- Trend axis: date or category. Trend measure: the original measure role.
-- Independent headline measure: a dedicated DAX measure evaluated independently of the trend category. Example: Revenue headline = CALCULATE([Revenue], ALLSELECTED('Calendar'[Date])). Choose the correct filter-removal expression for the model and actual axis. Do the same for Independent headline comparison.
-- Trend comparison: optional category-level measure.
+Install Node.js 22+ and run from this repository root:
 
-Categorical mappings evaluate measures per category. The adapter deliberately reads the first headline value and NEVER sums category values. Therefore headline DAX must return the same intended scalar for each category. A normal ratio bound without removing axis context is not a report-wide ratio. Empty/headline-null data displays an em dash; no total is fabricated. A zero baseline has absolute variance but no percentage. Positive variance indicates an increase, not necessarily business success.
+```powershell
+npm ci
+npm run check
+npm test
+npm run demo
+npm run build
+```
 
-## Formatting and interaction
+Run `npm run test:demo` for browser checks (Microsoft Edge installed; set `BROWSER_CHANNEL=chrome` to use Chrome).
 
-Dashboard and chart cards control title, fonts, decimals, prefixes/suffixes, percent scaling, theme/colors, chart visibility, width/fill, gridlines, tooltip, comparison and animation. Currency uses a prefix/suffix. Percent mode expects fractional values. Legacy color/font properties remain and migrate when new equivalents are absent. Obsolete legacy saturation/show-all metadata is retained; all points use the configured line color.
+The root lockfile and npm workspaces manage common dependencies. No global Power BI CLI or dependency junction is needed. `npm run demo` regenerates the committed offline demos from source. Finance demo data is only imported by its browser entry point; the production Power BI visual still starts empty.
 
-Tab to points, Enter/Space selects; Ctrl/Command adds selection. Right click or Shift+F10 opens the host context menu. Clear selection uses the native manager. Tooltips show point and comparison values. High contrast uses host foreground/background; reduced motion disables entry animation.
+## Deploy separately
 
-## Manual Power BI Desktop acceptance
+```powershell
+npm run release:finance
+npm run release:workforce
+```
 
-Import dist/*.pbiviz using Get more visuals > Import a visual from a file. Bind headline, trend, axis and comparison fields. Verify DAX headline semantics under slicers and cross filters, click and multi-select against a second visual, clear selection, context menus and keyboard focus. Check 200x150, 600x300 and large viewports, light/dark/high contrast, zero/negative/null series, date sorting, tooltip clipping, format persistence after reopen, and reduced motion. These Desktop checks have NOT been executed.
+These commands require PowerShell 7 (`pwsh`) and produce `releases/Finance-OS.zip` and `releases/Workforce-OS.zip`. Each ZIP has its own START-DEMO.html, compiled visuals, editable PBIP report/model and data setup guide. Workforce also includes Monthly-Targets.html. Neither ZIP needs the other tool. `npm run release` builds both.
 
-## Current limits
+Run `pwsh -NoProfile -File scripts/export-source.ps1` to export the current working source, including offline demos, as `releases/Business-OS-Source.zip`. This includes uncommitted changes; GitHub's download ZIP includes only committed files.
 
-Chart is capped at 1,000 categories by host reduction; there is no paging. Comparison is a dashed line. Number formats use Intl plus explicit pane settings rather than all DAX custom format strings. Animation is an entry fade; interpolated path transitions remain future work. Native host tooltip service, localization resources and partial cross-highlighting remain future work. Selection dimming is local and resets after host data updates. Shared framework currently comprises the typed adapter, formatting utilities, KPI and chart components; additional navigation/dropdown components should be introduced with real use cases.
+For browser hosting, upload only `demos/finance/` or `demos/workforce/` to your static host. Each has its own index.html; Workforce targets are at targets.html. Browser demos use bundled synthetic data, with no backend connection.
 
-## Finance Invoice-to-Cash report
+For Power BI, extract the tool ZIP and open the PBIP under powerbi/ using Power BI Desktop. Follow powerbi/START-HERE.md for import mappings and data setup. Publish through your own workspace. Browser checks do not validate Power BI Desktop refresh or Service publishing.
 
-An editable four-page PBIP report is in reports/FinanceI2C. From that folder run ./Prepare-KpiVisual.ps1 -Build to build and install the ignored private visual resources, then open FinanceI2C.pbip and Refresh. The report embeds synthetic USD invoice, payment, credit, promise and AR snapshot data. See START-HERE.md for metric definitions, date semantics and Desktop acceptance checks. The separate downloadable ZIP already includes the compiled private visual. KPI formatting now includes Lower values are better for finance metrics, and compact cards adapt below 260 pixels.
+## Source map
 
+| Tool / shared code | Location |
+| --- | --- |
+| Finance app and metrics | visuals/FinanceDashboard |
+| Finance report and data templates | reports/FinanceOS |
+| Workforce app and metrics | projects/workforce-os/visual |
+| Monthly targets app and metrics | projects/workforce-os/targets-visual |
+| Workforce report and templates | projects/workforce-os/WorkforceOS |
+| Shared navigation, cards, themes and responsive styles | packages/design-system/base.less |
+| Shared offline demo compiler | scripts/preview.cjs |
+| Separate release packaging | scripts/release.ps1 |
 
-## Finance OS — a full dashboard inside one visual
-
-Use visuals/FinanceDashboard for the five-page Invoice-to-Cash application with Material-style sidebar navigation. From that directory run npm ci, npm run check, npm test and npm run build. npm run preview builds an offline interactive browser preview. Its table ledger is a new binding contract; the previous KPI visual is preserved separately. reports/FinanceOS contains the companion one-page/one-visual PBIP; run Prepare-Visual.ps1 -Build there after a fresh checkout. See its START-HERE.md for roles, calculations and Desktop acceptance steps.
-
-## Data-free Finance OS release
-
-Finance OS 2.1.0.0 has an empty default model, no sample-data setting and no fallback. reports/FinanceOS includes header-only CSV templates and a Power Query connection script; the optional fictional event ledger is in reports/FinanceOS/sample-data/FinanceLedger-Sample.csv and is not loaded automatically. Read docs/Finance-OS-Population-Guide.pdf for field mappings and setup. Previous sample-driven report versions are separate historical projects.
-
-## Workforce OS
-
-The Workday-shaped workforce dashboard is in [projects/workforce-os](projects/workforce-os). It includes six interactive views, a Power BI project, a packaged custom visual, 20 DAX measures, fictional sample data, and a Workday export mapping guide. Open projects/workforce-os/WorkforceOS/WorkforceOS.pbip and refresh.
-
+Domain models stay with each tool; the shell styling, dependency versions, preview build and release pipeline are shared. Older one-off generators and diagnostic scripts under projects/workforce-os/scripts are historical utilities; use the root commands above for supported builds and releases.

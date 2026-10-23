@@ -24,4 +24,9 @@ webpack.statistics.*.html
 **/ui-validation.json
 **/test-results/
 **/playwright-report/
+**/preview/_build/
+**/visual/preview/Preview.html
+**/targets-visual/preview/Preview.html
+**/.pbi/
+releases/
 

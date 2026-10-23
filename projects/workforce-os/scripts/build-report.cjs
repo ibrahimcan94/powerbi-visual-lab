@@ -68,7 +68,7 @@ write(path.join(out,'Measures.dax'),Object.entries(measures).map(([name,[dax]])=
 const csv=data=>data.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\r\n');
 write(path.join(out,'sample-data/Workforce-SYNTHETIC.csv'),csv([fields.map(([,n])=>n),...data]));
 write(path.join(out,'Workday-Field-Template.csv'),csv([fields.map(([,n])=>n)]));
-const prior='C:/Users/Admin/Desktop/powerbi-visual-lab/reports/FinanceOS/FinanceOS.Report';
+const prior=path.resolve(__dirname,'../../../reports/FinanceOS/FinanceOS.Report');
 const config=JSON.parse(fs.readFileSync(path.join(prior,'definition/report.json'))),guid=require('../visual/pbiviz.json').visual.guid;
 config.resourcePackages=config.resourcePackages.filter(p=>p.type!=='CustomVisual');config.resourcePackages.push({name:guid,type:'CustomVisual',items:[{name:guid+'.pbiviz.json',path:guid+'.pbiviz.json',type:'CustomVisualMetadata'}]});
 fs.cpSync(path.join(prior,'StaticResources'),path.join(report,'StaticResources'),{recursive:true});
