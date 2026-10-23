@@ -1,0 +1,962 @@
+[
+  {
+    "month": "2026-01",
+    "stream": "I2P",
+    "country": "Costa Rica",
+    "director": "I2P Director — Costa Rica",
+    "actual": 180,
+    "target": 180
+  },
+  {
+    "month": "2026-02",
+    "stream": "I2P",
+    "country": "Costa Rica",
+    "director": "I2P Director — Costa Rica",
+    "actual": 178,
+    "target": 180
+  },
+  {
+    "month": "2026-03",
+    "stream": "I2P",
+    "country": "Costa Rica",
+    "director": "I2P Director — Costa Rica",
+    "actual": 176,
+    "target": 176
+  },
+  {
+    "month": "2026-04",
+    "stream": "I2P",
+    "country": "Costa Rica",
+    "director": "I2P Director — Costa Rica",
+    "actual": 173,
+    "target": 174
+  },
+  {
+    "month": "2026-05",
+    "stream": "I2P",
+    "country": "Costa Rica",
+    "director": "I2P Director — Costa Rica",
+    "actual": 171,
+    "target": 170
+  },
+  {
+    "month": "2026-06",
+    "stream": "I2P",
+    "country": "Costa Rica",
+    "director": "I2P Director — Costa Rica",
+    "actual": 169,
+    "target": 168
+  },
+  {
+    "month": "2026-07",
+    "stream": "I2P",
+    "country": "Costa Rica",
+    "director": "I2P Director — Costa Rica",
+    "actual": 165,
+    "target": 164
+  },
+  {
+    "month": "2026-08",
+    "stream": "I2P",
+    "country": "Costa Rica",
+    "director": "I2P Director — Costa Rica",
+    "actual": 162,
+    "target": 161
+  },
+  {
+    "month": "2026-09",
+    "stream": "I2P",
+    "country": "Costa Rica",
+    "director": "I2P Director — Costa Rica",
+    "actual": 160,
+    "target": 157
+  },
+  {
+    "month": "2026-10",
+    "stream": "I2P",
+    "country": "Costa Rica",
+    "director": "I2P Director — Costa Rica",
+    "actual": 158,
+    "target": 153
+  },
+  {
+    "month": "2026-11",
+    "stream": "I2P",
+    "country": "Costa Rica",
+    "director": "I2P Director — Costa Rica",
+    "actual": null,
+    "target": 151
+  },
+  {
+    "month": "2026-12",
+    "stream": "I2P",
+    "country": "Costa Rica",
+    "director": "I2P Director — Costa Rica",
+    "actual": null,
+    "target": 150
+  },
+  {
+    "month": "2026-01",
+    "stream": "I2P",
+    "country": "Poland",
+    "director": "I2P Director — Poland",
+    "actual": 140,
+    "target": 140
+  },
+  {
+    "month": "2026-02",
+    "stream": "I2P",
+    "country": "Poland",
+    "director": "I2P Director — Poland",
+    "actual": 139,
+    "target": 140
+  },
+  {
+    "month": "2026-03",
+    "stream": "I2P",
+    "country": "Poland",
+    "director": "I2P Director — Poland",
+    "actual": 137,
+    "target": 138
+  },
+  {
+    "month": "2026-04",
+    "stream": "I2P",
+    "country": "Poland",
+    "director": "I2P Director — Poland",
+    "actual": 135,
+    "target": 135
+  },
+  {
+    "month": "2026-05",
+    "stream": "I2P",
+    "country": "Poland",
+    "director": "I2P Director — Poland",
+    "actual": 133,
+    "target": 131
+  },
+  {
+    "month": "2026-06",
+    "stream": "I2P",
+    "country": "Poland",
+    "director": "I2P Director — Poland",
+    "actual": 130,
+    "target": 128
+  },
+  {
+    "month": "2026-07",
+    "stream": "I2P",
+    "country": "Poland",
+    "director": "I2P Director — Poland",
+    "actual": 128,
+    "target": 124
+  },
+  {
+    "month": "2026-08",
+    "stream": "I2P",
+    "country": "Poland",
+    "director": "I2P Director — Poland",
+    "actual": 126,
+    "target": 121
+  },
+  {
+    "month": "2026-09",
+    "stream": "I2P",
+    "country": "Poland",
+    "director": "I2P Director — Poland",
+    "actual": 124,
+    "target": 118
+  },
+  {
+    "month": "2026-10",
+    "stream": "I2P",
+    "country": "Poland",
+    "director": "I2P Director — Poland",
+    "actual": 122,
+    "target": 116
+  },
+  {
+    "month": "2026-11",
+    "stream": "I2P",
+    "country": "Poland",
+    "director": "I2P Director — Poland",
+    "actual": null,
+    "target": 114
+  },
+  {
+    "month": "2026-12",
+    "stream": "I2P",
+    "country": "Poland",
+    "director": "I2P Director — Poland",
+    "actual": null,
+    "target": 112
+  },
+  {
+    "month": "2026-01",
+    "stream": "I2C",
+    "country": "Costa Rica",
+    "director": "I2C Director — Costa Rica",
+    "actual": 160,
+    "target": 160
+  },
+  {
+    "month": "2026-02",
+    "stream": "I2C",
+    "country": "Costa Rica",
+    "director": "I2C Director — Costa Rica",
+    "actual": 158,
+    "target": 159
+  },
+  {
+    "month": "2026-03",
+    "stream": "I2C",
+    "country": "Costa Rica",
+    "director": "I2C Director — Costa Rica",
+    "actual": 155,
+    "target": 157
+  },
+  {
+    "month": "2026-04",
+    "stream": "I2C",
+    "country": "Costa Rica",
+    "director": "I2C Director — Costa Rica",
+    "actual": 154,
+    "target": 154
+  },
+  {
+    "month": "2026-05",
+    "stream": "I2C",
+    "country": "Costa Rica",
+    "director": "I2C Director — Costa Rica",
+    "actual": 151,
+    "target": 150
+  },
+  {
+    "month": "2026-06",
+    "stream": "I2C",
+    "country": "Costa Rica",
+    "director": "I2C Director — Costa Rica",
+    "actual": 150,
+    "target": 147
+  },
+  {
+    "month": "2026-07",
+    "stream": "I2C",
+    "country": "Costa Rica",
+    "director": "I2C Director — Costa Rica",
+    "actual": 146,
+    "target": 143
+  },
+  {
+    "month": "2026-08",
+    "stream": "I2C",
+    "country": "Costa Rica",
+    "director": "I2C Director — Costa Rica",
+    "actual": 143,
+    "target": 140
+  },
+  {
+    "month": "2026-09",
+    "stream": "I2C",
+    "country": "Costa Rica",
+    "director": "I2C Director — Costa Rica",
+    "actual": 140,
+    "target": 137
+  },
+  {
+    "month": "2026-10",
+    "stream": "I2C",
+    "country": "Costa Rica",
+    "director": "I2C Director — Costa Rica",
+    "actual": 142,
+    "target": 134
+  },
+  {
+    "month": "2026-11",
+    "stream": "I2C",
+    "country": "Costa Rica",
+    "director": "I2C Director — Costa Rica",
+    "actual": null,
+    "target": 130
+  },
+  {
+    "month": "2026-12",
+    "stream": "I2C",
+    "country": "Costa Rica",
+    "director": "I2C Director — Costa Rica",
+    "actual": null,
+    "target": 128
+  },
+  {
+    "month": "2026-01",
+    "stream": "I2C",
+    "country": "Poland",
+    "director": "I2C Director — Poland",
+    "actual": 120,
+    "target": 120
+  },
+  {
+    "month": "2026-02",
+    "stream": "I2C",
+    "country": "Poland",
+    "director": "I2C Director — Poland",
+    "actual": 119,
+    "target": 120
+  },
+  {
+    "month": "2026-03",
+    "stream": "I2C",
+    "country": "Poland",
+    "director": "I2C Director — Poland",
+    "actual": 117,
+    "target": 118
+  },
+  {
+    "month": "2026-04",
+    "stream": "I2C",
+    "country": "Poland",
+    "director": "I2C Director — Poland",
+    "actual": 115,
+    "target": 116
+  },
+  {
+    "month": "2026-05",
+    "stream": "I2C",
+    "country": "Poland",
+    "director": "I2C Director — Poland",
+    "actual": 112,
+    "target": 114
+  },
+  {
+    "month": "2026-06",
+    "stream": "I2C",
+    "country": "Poland",
+    "director": "I2C Director — Poland",
+    "actual": 110,
+    "target": 111
+  },
+  {
+    "month": "2026-07",
+    "stream": "I2C",
+    "country": "Poland",
+    "director": "I2C Director — Poland",
+    "actual": 108,
+    "target": 108
+  },
+  {
+    "month": "2026-08",
+    "stream": "I2C",
+    "country": "Poland",
+    "director": "I2C Director — Poland",
+    "actual": 106,
+    "target": 106
+  },
+  {
+    "month": "2026-09",
+    "stream": "I2C",
+    "country": "Poland",
+    "director": "I2C Director — Poland",
+    "actual": 103,
+    "target": 104
+  },
+  {
+    "month": "2026-10",
+    "stream": "I2C",
+    "country": "Poland",
+    "director": "I2C Director — Poland",
+    "actual": 101,
+    "target": 102
+  },
+  {
+    "month": "2026-11",
+    "stream": "I2C",
+    "country": "Poland",
+    "director": "I2C Director — Poland",
+    "actual": null,
+    "target": 101
+  },
+  {
+    "month": "2026-12",
+    "stream": "I2C",
+    "country": "Poland",
+    "director": "I2C Director — Poland",
+    "actual": null,
+    "target": 100
+  },
+  {
+    "month": "2026-01",
+    "stream": "R2R",
+    "country": "Costa Rica",
+    "director": "R2R Director — Costa Rica",
+    "actual": 125,
+    "target": 125
+  },
+  {
+    "month": "2026-02",
+    "stream": "R2R",
+    "country": "Costa Rica",
+    "director": "R2R Director — Costa Rica",
+    "actual": 124,
+    "target": 125
+  },
+  {
+    "month": "2026-03",
+    "stream": "R2R",
+    "country": "Costa Rica",
+    "director": "R2R Director — Costa Rica",
+    "actual": 122,
+    "target": 123
+  },
+  {
+    "month": "2026-04",
+    "stream": "R2R",
+    "country": "Costa Rica",
+    "director": "R2R Director — Costa Rica",
+    "actual": 120,
+    "target": 121
+  },
+  {
+    "month": "2026-05",
+    "stream": "R2R",
+    "country": "Costa Rica",
+    "director": "R2R Director — Costa Rica",
+    "actual": 117,
+    "target": 119
+  },
+  {
+    "month": "2026-06",
+    "stream": "R2R",
+    "country": "Costa Rica",
+    "director": "R2R Director — Costa Rica",
+    "actual": 115,
+    "target": 116
+  },
+  {
+    "month": "2026-07",
+    "stream": "R2R",
+    "country": "Costa Rica",
+    "director": "R2R Director — Costa Rica",
+    "actual": 112,
+    "target": 113
+  },
+  {
+    "month": "2026-08",
+    "stream": "R2R",
+    "country": "Costa Rica",
+    "director": "R2R Director — Costa Rica",
+    "actual": 109,
+    "target": 111
+  },
+  {
+    "month": "2026-09",
+    "stream": "R2R",
+    "country": "Costa Rica",
+    "director": "R2R Director — Costa Rica",
+    "actual": 107,
+    "target": 109
+  },
+  {
+    "month": "2026-10",
+    "stream": "R2R",
+    "country": "Costa Rica",
+    "director": "R2R Director — Costa Rica",
+    "actual": 105,
+    "target": 108
+  },
+  {
+    "month": "2026-11",
+    "stream": "R2R",
+    "country": "Costa Rica",
+    "director": "R2R Director — Costa Rica",
+    "actual": null,
+    "target": 107
+  },
+  {
+    "month": "2026-12",
+    "stream": "R2R",
+    "country": "Costa Rica",
+    "director": "R2R Director — Costa Rica",
+    "actual": null,
+    "target": 106
+  },
+  {
+    "month": "2026-01",
+    "stream": "R2R",
+    "country": "Poland",
+    "director": "R2R Director — Poland",
+    "actual": 110,
+    "target": 110
+  },
+  {
+    "month": "2026-02",
+    "stream": "R2R",
+    "country": "Poland",
+    "director": "R2R Director — Poland",
+    "actual": 109,
+    "target": 110
+  },
+  {
+    "month": "2026-03",
+    "stream": "R2R",
+    "country": "Poland",
+    "director": "R2R Director — Poland",
+    "actual": 107,
+    "target": 108
+  },
+  {
+    "month": "2026-04",
+    "stream": "R2R",
+    "country": "Poland",
+    "director": "R2R Director — Poland",
+    "actual": 105,
+    "target": 106
+  },
+  {
+    "month": "2026-05",
+    "stream": "R2R",
+    "country": "Poland",
+    "director": "R2R Director — Poland",
+    "actual": 102,
+    "target": 104
+  },
+  {
+    "month": "2026-06",
+    "stream": "R2R",
+    "country": "Poland",
+    "director": "R2R Director — Poland",
+    "actual": 100,
+    "target": 102
+  },
+  {
+    "month": "2026-07",
+    "stream": "R2R",
+    "country": "Poland",
+    "director": "R2R Director — Poland",
+    "actual": 98,
+    "target": 100
+  },
+  {
+    "month": "2026-08",
+    "stream": "R2R",
+    "country": "Poland",
+    "director": "R2R Director — Poland",
+    "actual": 96,
+    "target": 98
+  },
+  {
+    "month": "2026-09",
+    "stream": "R2R",
+    "country": "Poland",
+    "director": "R2R Director — Poland",
+    "actual": 93,
+    "target": 96
+  },
+  {
+    "month": "2026-10",
+    "stream": "R2R",
+    "country": "Poland",
+    "director": "R2R Director — Poland",
+    "actual": 91,
+    "target": 94
+  },
+  {
+    "month": "2026-11",
+    "stream": "R2R",
+    "country": "Poland",
+    "director": "R2R Director — Poland",
+    "actual": null,
+    "target": 93
+  },
+  {
+    "month": "2026-12",
+    "stream": "R2R",
+    "country": "Poland",
+    "director": "R2R Director — Poland",
+    "actual": null,
+    "target": 92
+  },
+  {
+    "month": "2026-01",
+    "stream": "MDM",
+    "country": "Costa Rica",
+    "director": "MDM Director — Costa Rica",
+    "actual": 80,
+    "target": 80
+  },
+  {
+    "month": "2026-02",
+    "stream": "MDM",
+    "country": "Costa Rica",
+    "director": "MDM Director — Costa Rica",
+    "actual": 80,
+    "target": 80
+  },
+  {
+    "month": "2026-03",
+    "stream": "MDM",
+    "country": "Costa Rica",
+    "director": "MDM Director — Costa Rica",
+    "actual": 79,
+    "target": 79
+  },
+  {
+    "month": "2026-04",
+    "stream": "MDM",
+    "country": "Costa Rica",
+    "director": "MDM Director — Costa Rica",
+    "actual": 78,
+    "target": 78
+  },
+  {
+    "month": "2026-05",
+    "stream": "MDM",
+    "country": "Costa Rica",
+    "director": "MDM Director — Costa Rica",
+    "actual": 77,
+    "target": 76
+  },
+  {
+    "month": "2026-06",
+    "stream": "MDM",
+    "country": "Costa Rica",
+    "director": "MDM Director — Costa Rica",
+    "actual": 75,
+    "target": 74
+  },
+  {
+    "month": "2026-07",
+    "stream": "MDM",
+    "country": "Costa Rica",
+    "director": "MDM Director — Costa Rica",
+    "actual": 74,
+    "target": 72
+  },
+  {
+    "month": "2026-08",
+    "stream": "MDM",
+    "country": "Costa Rica",
+    "director": "MDM Director — Costa Rica",
+    "actual": 73,
+    "target": 71
+  },
+  {
+    "month": "2026-09",
+    "stream": "MDM",
+    "country": "Costa Rica",
+    "director": "MDM Director — Costa Rica",
+    "actual": 73,
+    "target": 70
+  },
+  {
+    "month": "2026-10",
+    "stream": "MDM",
+    "country": "Costa Rica",
+    "director": "MDM Director — Costa Rica",
+    "actual": 74,
+    "target": 68
+  },
+  {
+    "month": "2026-11",
+    "stream": "MDM",
+    "country": "Costa Rica",
+    "director": "MDM Director — Costa Rica",
+    "actual": null,
+    "target": 66
+  },
+  {
+    "month": "2026-12",
+    "stream": "MDM",
+    "country": "Costa Rica",
+    "director": "MDM Director — Costa Rica",
+    "actual": null,
+    "target": 65
+  },
+  {
+    "month": "2026-01",
+    "stream": "MDM",
+    "country": "Poland",
+    "director": "MDM Director — Poland",
+    "actual": 65,
+    "target": 65
+  },
+  {
+    "month": "2026-02",
+    "stream": "MDM",
+    "country": "Poland",
+    "director": "MDM Director — Poland",
+    "actual": 65,
+    "target": 65
+  },
+  {
+    "month": "2026-03",
+    "stream": "MDM",
+    "country": "Poland",
+    "director": "MDM Director — Poland",
+    "actual": 64,
+    "target": 64
+  },
+  {
+    "month": "2026-04",
+    "stream": "MDM",
+    "country": "Poland",
+    "director": "MDM Director — Poland",
+    "actual": 63,
+    "target": 63
+  },
+  {
+    "month": "2026-05",
+    "stream": "MDM",
+    "country": "Poland",
+    "director": "MDM Director — Poland",
+    "actual": 62,
+    "target": 61
+  },
+  {
+    "month": "2026-06",
+    "stream": "MDM",
+    "country": "Poland",
+    "director": "MDM Director — Poland",
+    "actual": 61,
+    "target": 60
+  },
+  {
+    "month": "2026-07",
+    "stream": "MDM",
+    "country": "Poland",
+    "director": "MDM Director — Poland",
+    "actual": 61,
+    "target": 59
+  },
+  {
+    "month": "2026-08",
+    "stream": "MDM",
+    "country": "Poland",
+    "director": "MDM Director — Poland",
+    "actual": 60,
+    "target": 58
+  },
+  {
+    "month": "2026-09",
+    "stream": "MDM",
+    "country": "Poland",
+    "director": "MDM Director — Poland",
+    "actual": 60,
+    "target": 57
+  },
+  {
+    "month": "2026-10",
+    "stream": "MDM",
+    "country": "Poland",
+    "director": "MDM Director — Poland",
+    "actual": 59,
+    "target": 56
+  },
+  {
+    "month": "2026-11",
+    "stream": "MDM",
+    "country": "Poland",
+    "director": "MDM Director — Poland",
+    "actual": null,
+    "target": 55
+  },
+  {
+    "month": "2026-12",
+    "stream": "MDM",
+    "country": "Poland",
+    "director": "MDM Director — Poland",
+    "actual": null,
+    "target": 54
+  },
+  {
+    "month": "2026-01",
+    "stream": "ICO",
+    "country": "Costa Rica",
+    "director": "ICO Director — Costa Rica",
+    "actual": 50,
+    "target": 50
+  },
+  {
+    "month": "2026-02",
+    "stream": "ICO",
+    "country": "Costa Rica",
+    "director": "ICO Director — Costa Rica",
+    "actual": 49,
+    "target": 50
+  },
+  {
+    "month": "2026-03",
+    "stream": "ICO",
+    "country": "Costa Rica",
+    "director": "ICO Director — Costa Rica",
+    "actual": 49,
+    "target": 49
+  },
+  {
+    "month": "2026-04",
+    "stream": "ICO",
+    "country": "Costa Rica",
+    "director": "ICO Director — Costa Rica",
+    "actual": 48,
+    "target": 48
+  },
+  {
+    "month": "2026-05",
+    "stream": "ICO",
+    "country": "Costa Rica",
+    "director": "ICO Director — Costa Rica",
+    "actual": 47,
+    "target": 47
+  },
+  {
+    "month": "2026-06",
+    "stream": "ICO",
+    "country": "Costa Rica",
+    "director": "ICO Director — Costa Rica",
+    "actual": 46,
+    "target": 46
+  },
+  {
+    "month": "2026-07",
+    "stream": "ICO",
+    "country": "Costa Rica",
+    "director": "ICO Director — Costa Rica",
+    "actual": 45,
+    "target": 45
+  },
+  {
+    "month": "2026-08",
+    "stream": "ICO",
+    "country": "Costa Rica",
+    "director": "ICO Director — Costa Rica",
+    "actual": 44,
+    "target": 44
+  },
+  {
+    "month": "2026-09",
+    "stream": "ICO",
+    "country": "Costa Rica",
+    "director": "ICO Director — Costa Rica",
+    "actual": 43,
+    "target": 43
+  },
+  {
+    "month": "2026-10",
+    "stream": "ICO",
+    "country": "Costa Rica",
+    "director": "ICO Director — Costa Rica",
+    "actual": 42,
+    "target": 42
+  },
+  {
+    "month": "2026-11",
+    "stream": "ICO",
+    "country": "Costa Rica",
+    "director": "ICO Director — Costa Rica",
+    "actual": null,
+    "target": 41
+  },
+  {
+    "month": "2026-12",
+    "stream": "ICO",
+    "country": "Costa Rica",
+    "director": "ICO Director — Costa Rica",
+    "actual": null,
+    "target": 40
+  },
+  {
+    "month": "2026-01",
+    "stream": "ICO",
+    "country": "Poland",
+    "director": "ICO Director — Poland",
+    "actual": 45,
+    "target": 45
+  },
+  {
+    "month": "2026-02",
+    "stream": "ICO",
+    "country": "Poland",
+    "director": "ICO Director — Poland",
+    "actual": 44,
+    "target": 45
+  },
+  {
+    "month": "2026-03",
+    "stream": "ICO",
+    "country": "Poland",
+    "director": "ICO Director — Poland",
+    "actual": 44,
+    "target": 44
+  },
+  {
+    "month": "2026-04",
+    "stream": "ICO",
+    "country": "Poland",
+    "director": "ICO Director — Poland",
+    "actual": 43,
+    "target": 43
+  },
+  {
+    "month": "2026-05",
+    "stream": "ICO",
+    "country": "Poland",
+    "director": "ICO Director — Poland",
+    "actual": 42,
+    "target": 42
+  },
+  {
+    "month": "2026-06",
+    "stream": "ICO",
+    "country": "Poland",
+    "director": "ICO Director — Poland",
+    "actual": 42,
+    "target": 41
+  },
+  {
+    "month": "2026-07",
+    "stream": "ICO",
+    "country": "Poland",
+    "director": "ICO Director — Poland",
+    "actual": 41,
+    "target": 40
+  },
+  {
+    "month": "2026-08",
+    "stream": "ICO",
+    "country": "Poland",
+    "director": "ICO Director — Poland",
+    "actual": 40,
+    "target": 39
+  },
+  {
+    "month": "2026-09",
+    "stream": "ICO",
+    "country": "Poland",
+    "director": "ICO Director — Poland",
+    "actual": 39,
+    "target": 39
+  },
+  {
+    "month": "2026-10",
+    "stream": "ICO",
+    "country": "Poland",
+    "director": "ICO Director — Poland",
+    "actual": 38,
+    "target": 38
+  },
+  {
+    "month": "2026-11",
+    "stream": "ICO",
+    "country": "Poland",
+    "director": "ICO Director — Poland",
+    "actual": null,
+    "target": 38
+  },
+  {
+    "month": "2026-12",
+    "stream": "ICO",
+    "country": "Poland",
+    "director": "ICO Director — Poland",
+    "actual": null,
+    "target": 37
+  }
+]

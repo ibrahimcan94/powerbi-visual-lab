@@ -1,0 +1,80 @@
+table MonthlyPerformance
+	column Month
+		dataType: string
+		sourceColumn: Month
+		summarizeBy: none
+	column Workstream
+		dataType: string
+		sourceColumn: Workstream
+		summarizeBy: none
+	column Country
+		dataType: string
+		sourceColumn: Country
+		summarizeBy: none
+	column Director
+		dataType: string
+		sourceColumn: Director
+		summarizeBy: none
+	column ActualHC
+		dataType: int64
+		sourceColumn: ActualHC
+		summarizeBy: none
+	column TargetHC
+		dataType: int64
+		sourceColumn: TargetHC
+		summarizeBy: none
+	measure 'Reporting Month' = VAR SelectedMonth = SELECTEDVALUE(MonthlyPerformance[Month]) RETURN IF(NOT ISBLANK(SelectedMonth), SelectedMonth, MAXX(FILTER(ALLSELECTED(MonthlyPerformance), NOT ISBLANK(MonthlyPerformance[ActualHC])), MonthlyPerformance[Month]))
+		displayFolder: Monthly Comparisons
+	measure 'Monthly Actual HC' = VAR M = [Reporting Month] VAR Rows = CALCULATETABLE(MonthlyPerformance, MonthlyPerformance[Month] = M) RETURN IF(COUNTROWS(Rows) > 0 && COUNTX(Rows, MonthlyPerformance[ActualHC]) = COUNTROWS(Rows), SUMX(Rows, MonthlyPerformance[ActualHC]))
+		formatString: #,0
+		displayFolder: Monthly Comparisons
+	measure 'Monthly Target HC' = VAR M = [Reporting Month] VAR Rows = CALCULATETABLE(MonthlyPerformance, MonthlyPerformance[Month] = M) RETURN IF(COUNTROWS(Rows) > 0 && COUNTX(Rows, MonthlyPerformance[TargetHC]) = COUNTROWS(Rows), SUMX(Rows, MonthlyPerformance[TargetHC]))
+		formatString: #,0
+		displayFolder: Monthly Comparisons
+	measure 'Previous Month HC' = VAR M = [Reporting Month] VAR P = FORMAT(EDATE(DATE(VALUE(LEFT(M,4)),VALUE(RIGHT(M,2)),1),-1),"yyyy-MM") VAR Rows = CALCULATETABLE(MonthlyPerformance, REMOVEFILTERS(MonthlyPerformance[Month]), MonthlyPerformance[Month] = P) RETURN IF(COUNTROWS(Rows) > 0 && COUNTX(Rows, MonthlyPerformance[ActualHC]) = COUNTROWS(Rows), SUMX(Rows, MonthlyPerformance[ActualHC]))
+		formatString: #,0
+		displayFolder: Monthly Comparisons
+	measure 'Previous Month Target HC' = VAR M = [Reporting Month] VAR P = FORMAT(EDATE(DATE(VALUE(LEFT(M,4)),VALUE(RIGHT(M,2)),1),-1),"yyyy-MM") VAR Rows = CALCULATETABLE(MonthlyPerformance, REMOVEFILTERS(MonthlyPerformance[Month]), MonthlyPerformance[Month] = P) RETURN IF(COUNTROWS(Rows) > 0 && COUNTX(Rows, MonthlyPerformance[TargetHC]) = COUNTROWS(Rows), SUMX(Rows, MonthlyPerformance[TargetHC]))
+		formatString: #,0
+		displayFolder: Monthly Comparisons
+	measure 'MoM HC Delta' = IF(NOT ISBLANK([Monthly Actual HC]) && NOT ISBLANK([Previous Month HC]), [Monthly Actual HC] - [Previous Month HC])
+		formatString: +0;-0;0
+		displayFolder: Monthly Comparisons
+	measure 'MoM HC Delta Percent' = DIVIDE([MoM HC Delta], [Previous Month HC])
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Monthly Comparisons
+	measure 'Monthly Target Variance' = IF(NOT ISBLANK([Monthly Actual HC]) && NOT ISBLANK([Monthly Target HC]), [Monthly Actual HC] - [Monthly Target HC])
+		formatString: +0;-0;0
+		displayFolder: Monthly Comparisons
+	measure 'Monthly Target Variance Percent' = DIVIDE([Monthly Target Variance], [Monthly Target HC])
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Monthly Comparisons
+	measure 'Previous Target Variance' = IF(NOT ISBLANK([Previous Month HC]) && NOT ISBLANK([Previous Month Target HC]), [Previous Month HC] - [Previous Month Target HC])
+		formatString: +0;-0;0
+		displayFolder: Monthly Comparisons
+	measure 'Target Gap Change' = IF(NOT ISBLANK([Monthly Target Variance]) && NOT ISBLANK([Previous Target Variance]), [Monthly Target Variance] - [Previous Target Variance])
+		formatString: +0;-0;0
+		displayFolder: Monthly Comparisons
+	measure 'Actual Monthly Reduction' = IF(NOT ISBLANK([MoM HC Delta]), -[MoM HC Delta])
+		formatString: +0;-0;0
+		displayFolder: Monthly Comparisons
+	measure 'Planned Monthly Reduction' = IF(NOT ISBLANK([Previous Month Target HC]) && NOT ISBLANK([Monthly Target HC]), [Previous Month Target HC] - [Monthly Target HC])
+		formatString: +0;-0;0
+		displayFolder: Monthly Comparisons
+	measure 'Reduction Delivery Variance' = IF(NOT ISBLANK([Target Gap Change]), -[Target Gap Change])
+		formatString: +0;-0;0
+		displayFolder: Monthly Comparisons
+	partition MonthlyPerformance = m
+		mode: import
+		source =
+			let
+			    AllKeys = Table.Distinct(Table.Combine({Table.SelectColumns(MonthlyActuals, {"Month","Workstream","Country"}), Table.SelectColumns(MonthlyTargets, {"Month","Workstream","Country"})})),
+			    Months = Table.Distinct(Table.SelectColumns(AllKeys, {"Month"})),
+			    Pairs = Table.Distinct(Table.SelectColumns(AllKeys, {"Workstream","Country"})),
+			    Scaffold = Table.ExpandTableColumn(Table.AddColumn(Months, "Pairs", each Pairs), "Pairs", {"Workstream","Country"}),
+			    A = Table.NestedJoin(Scaffold, {"Month","Workstream","Country"}, MonthlyActuals, {"Month","Workstream","Country"}, "Actuals", JoinKind.LeftOuter),
+			    ExpandedA = Table.ExpandTableColumn(A, "Actuals", {"ActualHC"}),
+			    T = Table.NestedJoin(ExpandedA, {"Month","Workstream","Country"}, MonthlyTargets, {"Month","Workstream","Country"}, "Targets", JoinKind.LeftOuter),
+			    Result = Table.ExpandTableColumn(T, "Targets", {"Director","TargetHC"})
+			in
+			    Result

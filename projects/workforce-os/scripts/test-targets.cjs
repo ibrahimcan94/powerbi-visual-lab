@@ -1,0 +1,13 @@
+const fs=require('fs'),assert=require('node:assert/strict'),vm=require('vm'),path=require('path');
+const root=path.resolve(__dirname,'..'),ts=require(path.join(root,'targets-visual/node_modules/typescript'));
+const code=ts.transpileModule(fs.readFileSync(path.join(root,'targets-visual/src/model.ts'),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+const context={exports:{}};vm.runInNewContext(code,context);const {compare,normalize,previousMonth,percentage}=context.exports;
+const rows=normalize(require('../targets-visual/src/sample.json')),oct=compare(rows,'2026-10');
+for(const [key,value] of Object.entries({actual:932,prior:942,target:911,mom:-10,gap:21,priorGap:12,gapChange:9,plannedReduction:19,reduction:10,required:28,met:5}))assert.equal(oct[key],value,key);
+assert.equal(previousMonth('2026-01'),'2025-12');assert.equal(compare(rows,'2026-01').mom,null);assert.equal(compare(rows,'2026-11').actual,null);assert.equal(compare(rows,'2026-11').target,896);
+assert.equal(compare(rows.filter(r=>!(r.month==='2026-09'&&r.stream==='ICO')),'2026-10').mom,null);
+assert.equal(compare(rows.filter(r=>!(r.month==='2026-10'&&r.country==='Poland')),'2026-10').actual,null);
+assert.equal(compare(rows,'2026-10','I2C','Costa Rica').mom,2);assert.equal(percentage(5,0),null);
+const zero=[{month:'2026-10',stream:'ICO',country:'Poland',director:'D',actual:0,target:0}];assert.equal(compare(zero,'2026-10','ICO','Poland').gap,0);
+assert.equal(normalize([...rows,rows[0]]).length,rows.length);assert.throws(()=>normalize([...rows,{...rows[0],actual:999}]));assert.throws(()=>normalize([{...rows[0],actual:0.5}]));
+console.log('Monthly comparisons passed: totals, filters, exact prior month, missing data, zero and duplicate cases.');

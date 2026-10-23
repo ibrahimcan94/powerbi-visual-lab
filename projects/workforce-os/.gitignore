@@ -11,3 +11,6 @@ scripts/schema-cache/
 # Distribute the ready-to-open synthetic report visual
 !WorkforceOS/Workforce-OS.pbiviz
 
+
+targets-visual/preview/_build/
+!WorkforceOS/Workforce-Targets.pbiviz

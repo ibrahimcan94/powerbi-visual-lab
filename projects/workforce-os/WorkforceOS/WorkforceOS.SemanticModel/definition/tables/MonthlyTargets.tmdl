@@ -1,0 +1,32 @@
+table MonthlyTargets
+	column Month
+		dataType: string
+		sourceColumn: Month
+		summarizeBy: none
+	column Workstream
+		dataType: string
+		sourceColumn: Workstream
+		summarizeBy: none
+	column Country
+		dataType: string
+		sourceColumn: Country
+		summarizeBy: none
+	column Director
+		dataType: string
+		sourceColumn: Director
+		summarizeBy: none
+	column TargetHC
+		dataType: int64
+		sourceColumn: TargetHC
+		summarizeBy: none
+	partition MonthlyTargets = m
+		mode: import
+		source =
+			let
+			    Data = Json.Document(Binary.Decompress(Binary.FromText("pZhNahtBEEavImatQP9Pz3q08ULYzNZoIZwsDCECxwfIIXLCnMTgIPV09ServtbWw3to8Kuie56fB2dc+mbssB0e3NOwHebT7/fjZnl9Of7/02b3+vbj5f30tvn35+9m/dRmc9ieBe5ege8RjKkIQpcgFEHsEqxeIfUIUi6CsUuweoXcJbBFMPUI4ngRWNMl8EXQVWIsr2C7Soyrf2P5BU+nn8df3xF8fmIDnAES9AzoM2peA0bUuga0qHEF6GDbGhA2rQFhywrQZtSwBkyoXQ0YULMa0MlW5zb2+auBb5olBXGS7bKCUTbMCpq9zQqavU0KwijbZgVeNs4KjGydFPhmb7OCINtnBUbOAClYb5jyC1ZDNF9bFHAGSNAzoG32thZMqHUNGFDjGtCithWgyahpDZhQyxowoIY1oEPtasDmrKEFxRljcYuMfXHLV7HHutm7BL5L4OuGeYGtW6YFdqqb5gWpbpsXiL3NC8QZhRaYqW6eF+S6fV4w1jPACxKahcsQNXBZTQbNAAl6BjQZNa8BE2pdAwbUuAZ0qG0NaFDTt8Epo5QVXEIFK7iAwlVwHvWq4MRRe7/by873u/31zuUXknt438GPU90uzec6YZpPdck0H+qgad7VXdO8WNU0b+rOWT6JRU3zqe6e5iPq/zI3DXt+kiLqnuM8wwXUuYLzqG8FZ1HXCs6gnm9z6wt3ZriM+lVwI+pWwSXUq4KLqFMFF+o+H+bH5v44P17vO8pb4B287+CD2M80L/YzzY91xzQvDtM0H+uuaT7UfdO8rzuneXmJZHl5l2R5+dn6ky93Ucmen4SIuuc4z3ABda7gPOpbwTnUtYKTHz60nEEd3+b8hPqluFW3Ci6jXjmO6cWPh8MH", BinaryEncoding.Base64), Compression.Deflate)),
+			    Source = Table.FromRows(Data, {"Month", "Workstream", "Country", "Director", "TargetHC"}),
+			    Typed = Table.TransformColumnTypes(Source, {{"Month", type text}, {"Workstream", type text}, {"Country", type text}, {"Director", type text}, {"TargetHC", Int64.Type}}),
+			    Keys = Table.Group(Typed, {"Month", "Workstream", "Country"}, {{"N", each Table.RowCount(_), Int64.Type}}),
+			    Checked = if Table.RowCount(Table.SelectRows(Keys, each [N] > 1 or [Month] = null or [Workstream] = null or [Country] = null)) > 0 then error "Duplicate or missing monthly keys." else Typed
+			in
+			    Checked

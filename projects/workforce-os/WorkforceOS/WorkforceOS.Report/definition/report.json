@@ -61,6 +61,17 @@
           "type": "CustomVisualMetadata"
         }
       ]
+    },
+    {
+      "name": "workforceTargetsD920BC76A8304BAFB843C814A62D09C1",
+      "type": "CustomVisual",
+      "items": [
+        {
+          "name": "workforceTargetsD920BC76A8304BAFB843C814A62D09C1.pbiviz.json",
+          "path": "workforceTargetsD920BC76A8304BAFB843C814A62D09C1.pbiviz.json",
+          "type": "CustomVisualMetadata"
+        }
+      ]
     }
   ],
   "settings": {

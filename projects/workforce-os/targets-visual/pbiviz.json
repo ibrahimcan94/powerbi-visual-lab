@@ -1,0 +1,26 @@
+{
+  "visual": {
+    "name": "workforceTargets",
+    "displayName": "Workforce OS | Monthly Targets",
+    "guid": "workforceTargetsD920BC76A8304BAFB843C814A62D09C1",
+    "visualClassName": "Visual",
+    "version": "1.0.0.0",
+    "description": "Monthly headcount actuals, director targets, month-over-month changes and target variance.",
+    "supportUrl": "https://github.com/ibrahimcan94/powerbi-visual-lab",
+    "gitHubUrl": "https://github.com/ibrahimcan94/powerbi-visual-lab"
+  },
+  "apiVersion": "5.11.1",
+  "author": {
+    "name": "PowerBI Visual Lab",
+    "email": "ibrahimcan94@gmail.com"
+  },
+  "assets": {
+    "icon": "assets/icon.png"
+  },
+  "externalJS": null,
+  "style": "style/visual.less",
+  "capabilities": "capabilities.json",
+  "dependencies": null,
+  "stringResources": [],
+  "version": "1.0.0.0"
+}

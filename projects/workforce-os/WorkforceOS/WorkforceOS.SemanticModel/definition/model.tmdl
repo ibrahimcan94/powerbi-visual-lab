@@ -19,3 +19,9 @@ ref table LocalDateTable_6afcde4b-0a21-4eaf-ad65-f96a7ed14e09
 ref table LocalDateTable_2145e86b-e086-4583-ace1-a475e40efbd0
 ref table LocalDateTable_9becd9d8-984e-4219-ae20-c83a7a2dc351
 
+
+ref table MonthlyActuals
+
+ref table MonthlyTargets
+
+ref table MonthlyPerformance

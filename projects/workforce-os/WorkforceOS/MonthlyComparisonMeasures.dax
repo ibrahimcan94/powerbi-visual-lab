@@ -1,0 +1,41 @@
+Reporting Month =
+VAR SelectedMonth = SELECTEDVALUE(MonthlyPerformance[Month]) RETURN IF(NOT ISBLANK(SelectedMonth), SelectedMonth, MAXX(FILTER(ALLSELECTED(MonthlyPerformance), NOT ISBLANK(MonthlyPerformance[ActualHC])), MonthlyPerformance[Month]))
+
+Monthly Actual HC =
+VAR M = [Reporting Month] VAR Rows = CALCULATETABLE(MonthlyPerformance, MonthlyPerformance[Month] = M) RETURN IF(COUNTROWS(Rows) > 0 && COUNTX(Rows, MonthlyPerformance[ActualHC]) = COUNTROWS(Rows), SUMX(Rows, MonthlyPerformance[ActualHC]))
+
+Monthly Target HC =
+VAR M = [Reporting Month] VAR Rows = CALCULATETABLE(MonthlyPerformance, MonthlyPerformance[Month] = M) RETURN IF(COUNTROWS(Rows) > 0 && COUNTX(Rows, MonthlyPerformance[TargetHC]) = COUNTROWS(Rows), SUMX(Rows, MonthlyPerformance[TargetHC]))
+
+Previous Month HC =
+VAR M = [Reporting Month] VAR P = FORMAT(EDATE(DATE(VALUE(LEFT(M,4)),VALUE(RIGHT(M,2)),1),-1),"yyyy-MM") VAR Rows = CALCULATETABLE(MonthlyPerformance, REMOVEFILTERS(MonthlyPerformance[Month]), MonthlyPerformance[Month] = P) RETURN IF(COUNTROWS(Rows) > 0 && COUNTX(Rows, MonthlyPerformance[ActualHC]) = COUNTROWS(Rows), SUMX(Rows, MonthlyPerformance[ActualHC]))
+
+Previous Month Target HC =
+VAR M = [Reporting Month] VAR P = FORMAT(EDATE(DATE(VALUE(LEFT(M,4)),VALUE(RIGHT(M,2)),1),-1),"yyyy-MM") VAR Rows = CALCULATETABLE(MonthlyPerformance, REMOVEFILTERS(MonthlyPerformance[Month]), MonthlyPerformance[Month] = P) RETURN IF(COUNTROWS(Rows) > 0 && COUNTX(Rows, MonthlyPerformance[TargetHC]) = COUNTROWS(Rows), SUMX(Rows, MonthlyPerformance[TargetHC]))
+
+MoM HC Delta =
+IF(NOT ISBLANK([Monthly Actual HC]) && NOT ISBLANK([Previous Month HC]), [Monthly Actual HC] - [Previous Month HC])
+
+MoM HC Delta Percent =
+DIVIDE([MoM HC Delta], [Previous Month HC])
+
+Monthly Target Variance =
+IF(NOT ISBLANK([Monthly Actual HC]) && NOT ISBLANK([Monthly Target HC]), [Monthly Actual HC] - [Monthly Target HC])
+
+Monthly Target Variance Percent =
+DIVIDE([Monthly Target Variance], [Monthly Target HC])
+
+Previous Target Variance =
+IF(NOT ISBLANK([Previous Month HC]) && NOT ISBLANK([Previous Month Target HC]), [Previous Month HC] - [Previous Month Target HC])
+
+Target Gap Change =
+IF(NOT ISBLANK([Monthly Target Variance]) && NOT ISBLANK([Previous Target Variance]), [Monthly Target Variance] - [Previous Target Variance])
+
+Actual Monthly Reduction =
+IF(NOT ISBLANK([MoM HC Delta]), -[MoM HC Delta])
+
+Planned Monthly Reduction =
+IF(NOT ISBLANK([Previous Month Target HC]) && NOT ISBLANK([Monthly Target HC]), [Previous Month Target HC] - [Monthly Target HC])
+
+Reduction Delivery Variance =
+IF(NOT ISBLANK([Target Gap Change]), -[Target Gap Change])

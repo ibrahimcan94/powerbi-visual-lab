@@ -1,0 +1,142 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "MonthlyTargetsApp",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "width": 1600,
+    "height": 1150,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "workforceTargetsD920BC76A8304BAFB843C814A62D09C1",
+    "query": {
+      "queryState": {
+        "month": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyPerformance"
+                    }
+                  },
+                  "Property": "Month"
+                }
+              },
+              "queryRef": "MonthlyPerformance.Month",
+              "nativeQueryRef": "Month"
+            }
+          ]
+        },
+        "stream": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyPerformance"
+                    }
+                  },
+                  "Property": "Workstream"
+                }
+              },
+              "queryRef": "MonthlyPerformance.Workstream",
+              "nativeQueryRef": "Workstream"
+            }
+          ]
+        },
+        "country": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyPerformance"
+                    }
+                  },
+                  "Property": "Country"
+                }
+              },
+              "queryRef": "MonthlyPerformance.Country",
+              "nativeQueryRef": "Country"
+            }
+          ]
+        },
+        "director": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyPerformance"
+                    }
+                  },
+                  "Property": "Director"
+                }
+              },
+              "queryRef": "MonthlyPerformance.Director",
+              "nativeQueryRef": "Director"
+            }
+          ]
+        },
+        "actual": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyPerformance"
+                    }
+                  },
+                  "Property": "ActualHC"
+                }
+              },
+              "queryRef": "MonthlyPerformance.ActualHC",
+              "nativeQueryRef": "ActualHC"
+            }
+          ]
+        },
+        "target": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthlyPerformance"
+                    }
+                  },
+                  "Property": "TargetHC"
+                }
+              },
+              "queryRef": "MonthlyPerformance.TargetHC",
+              "nativeQueryRef": "TargetHC"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+table MonthlyActuals
+	column Month
+		dataType: string
+		sourceColumn: Month
+		summarizeBy: none
+	column Workstream
+		dataType: string
+		sourceColumn: Workstream
+		summarizeBy: none
+	column Country
+		dataType: string
+		sourceColumn: Country
+		summarizeBy: none
+	column ActualHC
+		dataType: int64
+		sourceColumn: ActualHC
+		summarizeBy: none
+	partition MonthlyActuals = m
+		mode: import
+		source =
+			let
+			    Data = Json.Document(Binary.Decompress(Binary.FromText("fZa7agMxEEV/JajegDR6107jwsS4NS5M0gRCUiT/T8BkNTszV1ufA4azF4+uV0eeyrMPbnFHOrvFHb5/fu9Pl4+3u1tC87dlVQgrtbESJ0phJU2UyEqeKIGVgpXSWakTJbPSJgqx0icKdwkeK3nTheuevz/vX+9uCQmWHTh2VJVxRUUZZ1STcUQlGXtUcWBqqCDjguoxTqgcY9LVDjvt/8sZJZtNWiXrglZJuqJVzCatYmoaJRVd1CpRV7WK2aRVYF2OD8sOHMwmJTablNhsUmJCJRnDigN7s0mJzSYljqgc4yCrXeiiw1KW5ZCSZD2kkCyIFC8rAmX7HcpEybImUkgWBYrvsipSqiyLlIzqwg9PFvuOqjKuqCjjjGoyJlSSsUcVV9wbCjhoQe0GjSjboGqPp5eTiqrP9r4RoVG7TAeMJusBQ00RGGqJwEiyIzDUf+Ou8ei5/yvcdC1eMuqJaLQ0oY6DRtRwUEL9Bg2oHaLNUo+aAbrptdLcZavj4VXVzPqQGCPpW7JrJGyo/QFD7Q8YRTYEhn4wWiPJlsDQB8Ya+jI/jLV4yqjnoAm1RDRZqt/dkuqjPKXV0oC6DepRs5VuXr+bXoO22+0P", BinaryEncoding.Base64), Compression.Deflate)),
+			    Source = Table.FromRows(Data, {"Month", "Workstream", "Country", "ActualHC"}),
+			    Typed = Table.TransformColumnTypes(Source, {{"Month", type text}, {"Workstream", type text}, {"Country", type text}, {"ActualHC", Int64.Type}}),
+			    Keys = Table.Group(Typed, {"Month", "Workstream", "Country"}, {{"N", each Table.RowCount(_), Int64.Type}}),
+			    Checked = if Table.RowCount(Table.SelectRows(Keys, each [N] > 1 or [Month] = null or [Workstream] = null or [Country] = null)) > 0 then error "Duplicate or missing monthly keys." else Typed
+			in
+			    Checked

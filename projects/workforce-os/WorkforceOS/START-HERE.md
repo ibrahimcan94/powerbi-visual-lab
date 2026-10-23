@@ -7,7 +7,7 @@ This dashboard uses entirely fictional workers and figures. The prior Finance OS
 1. Extract the complete ZIP to a local folder.
 2. Open `WorkforceOS.pbip` in Power BI Desktop. Keep the Report and SemanticModel folders beside it.
 3. Select **Refresh** to load the embedded synthetic dataset. No file path, Workday credential or network data connection is required for this demo.
-4. Use the left navigation inside the report to switch among six views. The report is one Power BI page containing a custom application visual, following the previous Finance OS architecture.
+4. The first page is **Monthly targets**, with monthly actuals, targets and comparison metrics. See MONTHLY-TARGETS.md for input templates and definitions. Use the other report page for the six original workforce views. Each page contains a custom application visual.
 
 If your Desktop version requires the Power BI Project preview option, enable that option in Desktop and restart. A custom-visual policy may affect loading private visuals in your organization. The separate `Workforce-OS.pbiviz` is supplied for importing the visual into another report.
 

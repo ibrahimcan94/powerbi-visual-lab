@@ -1,0 +1,94 @@
+{
+  "dataRoles": [
+    {
+      "name": "month",
+      "displayName": "Month",
+      "kind": "Grouping"
+    },
+    {
+      "name": "stream",
+      "displayName": "Workstream",
+      "kind": "Grouping"
+    },
+    {
+      "name": "country",
+      "displayName": "Country",
+      "kind": "Grouping"
+    },
+    {
+      "name": "director",
+      "displayName": "Director",
+      "kind": "Grouping"
+    },
+    {
+      "name": "actual",
+      "displayName": "ActualHC",
+      "kind": "Grouping"
+    },
+    {
+      "name": "target",
+      "displayName": "TargetHC",
+      "kind": "Grouping"
+    }
+  ],
+  "dataViewMappings": [
+    {
+      "table": {
+        "rows": {
+          "select": [
+            {
+              "for": {
+                "in": "month"
+              }
+            },
+            {
+              "for": {
+                "in": "stream"
+              }
+            },
+            {
+              "for": {
+                "in": "country"
+              }
+            },
+            {
+              "for": {
+                "in": "director"
+              }
+            },
+            {
+              "for": {
+                "in": "actual"
+              }
+            },
+            {
+              "for": {
+                "in": "target"
+              }
+            }
+          ],
+          "dataReductionAlgorithm": {
+            "window": {
+              "count": 30000
+            }
+          }
+        }
+      }
+    }
+  ],
+  "objects": {
+    "workspace": {
+      "properties": {
+        "demo": {
+          "type": {
+            "bool": true
+          }
+        }
+      }
+    }
+  },
+  "privileges": [],
+  "supportsKeyboardFocus": true,
+  "supportsLandingPage": true,
+  "supportsEmptyDataView": true
+}

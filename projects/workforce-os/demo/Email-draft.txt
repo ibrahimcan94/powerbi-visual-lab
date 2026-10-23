@@ -1,0 +1,15 @@
+Subject: Workforce dashboard — 60-second demonstration
+
+Hi,
+
+Attached is a short demonstration of the Power BI workforce dashboard concept, using fictional data.
+
+It shows monthly headcount changes, actuals versus monthly targets, and whether the target gap is improving. We can also review planned versus actual reductions across I2P, I2C, R2R, MDM and ICO, with separate director views for Costa Rica and Poland.
+
+The second page adds workforce headcount and FTE, organization drill-down, workforce mix, tenure based on latest hire date, a searchable worker directory and data quality checks. The two pages currently use separate fictional sample populations.
+
+The aim is to make the monthly discussion clear: where are we on plan, where are the gaps, and which workstreams need attention?
+
+The video shows the interactive visual preview. Live Workday data is not connected yet.
+
+Best,
